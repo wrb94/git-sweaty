@@ -71,12 +71,16 @@ Once the script succeeds, it will provide the URL for your dashboard.
 - `main` is intentionally kept free of generated `data/` and `site/data.json` artifacts so fork sync process stays cleaner.
 - After syncing, manually run [Sync Heatmaps](../../actions/workflows/sync.yml) if you want your dashboard refreshed immediately. Otherwise updates will deploy at the next scheduled run.
 
+---
+
 ### Switching Sources Later
 
 You can switch between `strava` and `garmin` at any time.
 
 - Re-run `./scripts/bootstrap.sh` (or the quickstart curl command) and choose a different source.
 - If you re-run setup and choose the same source, setup asks whether to force a one-time full backfill. You can also update your response for unit preference, day of week start, placing strava/garmin profle link on your dashboard, and whether you'd like activity links in the tooltips.
+
+---
 
 ## Other Features
 
