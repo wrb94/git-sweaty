@@ -951,9 +951,15 @@ function syncFilterControlState({
   }
 }
 
-function setDashboardTitle(source) {
+function setDashboardTitle(source, repoCandidate) {
   const provider = providerDisplayName(source);
-  const title = provider ? `${provider} Activity Heatmaps` : "Activity Heatmaps";
+  const parsed = parseGitHubRepo(repoCandidate);
+  const owner = parsed?.owner || "";
+  const title = owner && provider
+    ? `${owner} ${provider} Heatmaps`
+    : provider
+    ? `${provider} Activity Heatmaps`
+    : "Activity Heatmaps";
   if (dashboardTitle) {
     dashboardTitle.textContent = title;
   }
@@ -4474,7 +4480,7 @@ async function init() {
     profileUrl,
     sourceValue,
   );
-  setDashboardTitle(sourceValue);
+  setDashboardTitle(sourceValue, repoCandidate);
   TYPE_META = payload.type_meta || {};
   OTHER_BUCKET = String(payload.other_bucket || "OtherSports");
   (payload.types || []).forEach((type) => {
