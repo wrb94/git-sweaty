@@ -13782,7 +13782,7 @@
     {
       "date": "2026-03-30",
       "hour": 19,
-      "name": "Evening Run",
+      "name": "Strides",
       "subtype": "Run",
       "type": "Run",
       "url": "https://www.strava.com/activities/17916600307",
@@ -26855,7 +26855,7 @@
       }
     }
   },
-  "generated_at": "2026-03-30T21:42:41.699108+00:00",
+  "generated_at": "2026-03-31T08:39:24.484643+00:00",
   "other_bucket": "OtherSports",
   "repo": "wrb94/git-sweaty",
   "source": "strava",
@@ -26929,11 +26929,6 @@
   },
   "week_start": "monday",
   "years": [
-    2012,
-    2013,
-    2014,
-    2015,
-    2016,
     2017,
     2018,
     2019,
