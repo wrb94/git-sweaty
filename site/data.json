@@ -13805,6 +13805,15 @@
       "type": "Run",
       "url": "https://www.strava.com/activities/17934847072",
       "year": 2026
+    },
+    {
+      "date": "2026-04-02",
+      "hour": 19,
+      "name": "Evening Workout",
+      "subtype": "Workout",
+      "type": "Workout",
+      "url": "https://www.strava.com/activities/17954265151",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -26869,11 +26878,20 @@
           "distance": 0.0,
           "elevation_gain": 0.0,
           "moving_time": 3038.0
+        },
+        "2026-04-02": {
+          "activity_ids": [
+            "17954265151"
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 3325.0
         }
       }
     }
   },
-  "generated_at": "2026-04-02T15:28:43.789348+00:00",
+  "generated_at": "2026-04-03T15:21:16.243767+00:00",
   "other_bucket": "OtherSports",
   "repo": "wrb94/git-sweaty",
   "source": "strava",
