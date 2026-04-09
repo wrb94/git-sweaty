@@ -19979,5 +19979,18 @@
     "start_date_local": "2026-04-07T18:51:33Z",
     "type": "Run",
     "year": 2026
+  },
+  {
+    "date": "2026-04-09",
+    "distance": 13255.5,
+    "elevation_gain": 40.0,
+    "id": "18037406624",
+    "moving_time": 4149.0,
+    "name": "7x800m@T10K",
+    "raw_activity_type": "Run",
+    "raw_type": "Run",
+    "start_date_local": "2026-04-09T07:21:08Z",
+    "type": "Run",
+    "year": 2026
   }
 ]
