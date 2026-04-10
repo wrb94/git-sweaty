@@ -19992,5 +19992,18 @@
     "start_date_local": "2026-04-09T07:21:08Z",
     "type": "Run",
     "year": 2026
+  },
+  {
+    "date": "2026-04-09",
+    "distance": 0.0,
+    "elevation_gain": 0.0,
+    "id": "18045547009",
+    "moving_time": 3633.0,
+    "name": "Evening Workout",
+    "raw_activity_type": "Workout",
+    "raw_type": "Workout",
+    "start_date_local": "2026-04-09T19:19:41Z",
+    "type": "Workout",
+    "year": 2026
   }
 ]
