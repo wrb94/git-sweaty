@@ -13850,6 +13850,24 @@
       "type": "Workout",
       "url": "https://www.strava.com/activities/18045547009",
       "year": 2026
+    },
+    {
+      "date": "2026-04-11",
+      "hour": 18,
+      "name": "Evening Run",
+      "subtype": "Run",
+      "type": "Run",
+      "url": "https://www.strava.com/activities/18070669235",
+      "year": 2026
+    },
+    {
+      "date": "2026-04-12",
+      "hour": 10,
+      "name": "Morning Ride",
+      "subtype": "Ride",
+      "type": "Ride",
+      "url": "https://www.strava.com/activities/18080685625",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -26593,6 +26611,15 @@
           "distance": 59389.2,
           "elevation_gain": 488.0,
           "moving_time": 8242.0
+        },
+        "2026-04-12": {
+          "activity_ids": [
+            "18080685625"
+          ],
+          "count": 1,
+          "distance": 95088.0,
+          "elevation_gain": 674.0,
+          "moving_time": 12938.0
         }
       },
       "Run": {
@@ -26722,6 +26749,15 @@
           "distance": 13255.5,
           "elevation_gain": 40.0,
           "moving_time": 4149.0
+        },
+        "2026-04-11": {
+          "activity_ids": [
+            "18070669235"
+          ],
+          "count": 1,
+          "distance": 9870.8,
+          "elevation_gain": 27.0,
+          "moving_time": 3046.0
         }
       },
       "Swim": {
@@ -26963,7 +26999,7 @@
       }
     }
   },
-  "generated_at": "2026-04-11T15:15:37.831799+00:00",
+  "generated_at": "2026-04-12T15:18:34.482103+00:00",
   "other_bucket": "OtherSports",
   "repo": "wrb94/git-sweaty",
   "source": "strava",
