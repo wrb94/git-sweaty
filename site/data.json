@@ -13863,7 +13863,7 @@
     {
       "date": "2026-04-12",
       "hour": 10,
-      "name": "Morning Ride",
+      "name": "ZRYW s02e02 \u2022 Breslau - Roubaix",
       "subtype": "Ride",
       "type": "Ride",
       "url": "https://www.strava.com/activities/18080685625",
@@ -26618,7 +26618,7 @@
           ],
           "count": 1,
           "distance": 95088.0,
-          "elevation_gain": 674.0,
+          "elevation_gain": 476.0,
           "moving_time": 12938.0
         }
       },
@@ -26999,7 +26999,7 @@
       }
     }
   },
-  "generated_at": "2026-04-12T15:18:34.482103+00:00",
+  "generated_at": "2026-04-13T15:37:13.149831+00:00",
   "other_bucket": "OtherSports",
   "repo": "wrb94/git-sweaty",
   "source": "strava",
