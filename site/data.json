@@ -13895,6 +13895,15 @@
       "type": "Workout",
       "url": "https://www.strava.com/activities/18136671772",
       "year": 2026
+    },
+    {
+      "date": "2026-04-17",
+      "hour": 16,
+      "name": "Coffee Ride #3",
+      "subtype": "Ride",
+      "type": "Ride",
+      "url": "https://www.strava.com/activities/18148690385",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -26647,6 +26656,15 @@
           "distance": 95088.0,
           "elevation_gain": 476.0,
           "moving_time": 12938.0
+        },
+        "2026-04-17": {
+          "activity_ids": [
+            "18148690385"
+          ],
+          "count": 1,
+          "distance": 72052.3,
+          "elevation_gain": 308.0,
+          "moving_time": 9028.0
         }
       },
       "Run": {
@@ -27053,7 +27071,7 @@
       }
     }
   },
-  "generated_at": "2026-04-17T15:29:37.132408+00:00",
+  "generated_at": "2026-04-18T15:19:16.564254+00:00",
   "other_bucket": "OtherSports",
   "repo": "wrb94/git-sweaty",
   "source": "strava",

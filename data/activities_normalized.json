@@ -20070,5 +20070,18 @@
     "start_date_local": "2026-04-16T19:17:54Z",
     "type": "Workout",
     "year": 2026
+  },
+  {
+    "date": "2026-04-17",
+    "distance": 72052.3,
+    "elevation_gain": 308.0,
+    "id": "18148690385",
+    "moving_time": 9028.0,
+    "name": "Coffee Ride #3",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-04-17T16:10:59Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
