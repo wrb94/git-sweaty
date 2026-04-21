@@ -20109,5 +20109,18 @@
     "start_date_local": "2026-04-19T10:48:14Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-04-21",
+    "distance": 13748.6,
+    "elevation_gain": 38.0,
+    "id": "18193827886",
+    "moving_time": 4289.0,
+    "name": "6x1km@T10K",
+    "raw_activity_type": "Run",
+    "raw_type": "Run",
+    "start_date_local": "2026-04-21T07:28:32Z",
+    "type": "Run",
+    "year": 2026
   }
 ]
