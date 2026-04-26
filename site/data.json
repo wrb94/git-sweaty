@@ -13949,6 +13949,24 @@
       "type": "Workout",
       "url": "https://www.strava.com/activities/18230415892",
       "year": 2026
+    },
+    {
+      "date": "2026-04-25",
+      "hour": 10,
+      "name": "Boneshakers Club ride",
+      "subtype": "Ride",
+      "type": "Ride",
+      "url": "https://www.strava.com/activities/18254832556",
+      "year": 2026
+    },
+    {
+      "date": "2026-04-26",
+      "hour": 9,
+      "name": "Morning Run",
+      "subtype": "Run",
+      "type": "Run",
+      "url": "https://www.strava.com/activities/18262646017",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -26719,6 +26737,15 @@
           "distance": 29725.2,
           "elevation_gain": 88.0,
           "moving_time": 3956.0
+        },
+        "2026-04-25": {
+          "activity_ids": [
+            "18254832556"
+          ],
+          "count": 1,
+          "distance": 120925.0,
+          "elevation_gain": 596.2,
+          "moving_time": 15958.0
         }
       },
       "Run": {
@@ -26902,6 +26929,15 @@
           "distance": 12213.1,
           "elevation_gain": 43.0,
           "moving_time": 3737.0
+        },
+        "2026-04-26": {
+          "activity_ids": [
+            "18262646017"
+          ],
+          "count": 1,
+          "distance": 12206.8,
+          "elevation_gain": 35.8,
+          "moving_time": 3702.0
         }
       },
       "Swim": {
@@ -27161,7 +27197,7 @@
       }
     }
   },
-  "generated_at": "2026-04-25T15:20:28.643576+00:00",
+  "generated_at": "2026-04-26T15:20:48.048398+00:00",
   "other_bucket": "OtherSports",
   "repo": "wrb94/git-sweaty",
   "source": "strava",

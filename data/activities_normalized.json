@@ -20148,5 +20148,31 @@
     "start_date_local": "2026-04-23T19:20:06Z",
     "type": "Workout",
     "year": 2026
+  },
+  {
+    "date": "2026-04-25",
+    "distance": 120925.0,
+    "elevation_gain": 596.2,
+    "id": "18254832556",
+    "moving_time": 15958.0,
+    "name": "Boneshakers Club ride",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-04-25T10:09:34Z",
+    "type": "Ride",
+    "year": 2026
+  },
+  {
+    "date": "2026-04-26",
+    "distance": 12206.8,
+    "elevation_gain": 35.8,
+    "id": "18262646017",
+    "moving_time": 3702.0,
+    "name": "Morning Run",
+    "raw_activity_type": "Run",
+    "raw_type": "Run",
+    "start_date_local": "2026-04-26T09:50:23Z",
+    "type": "Run",
+    "year": 2026
   }
 ]
