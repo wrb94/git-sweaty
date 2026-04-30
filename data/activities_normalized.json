@@ -20187,5 +20187,18 @@
     "start_date_local": "2026-04-27T19:23:25Z",
     "type": "Run",
     "year": 2026
+  },
+  {
+    "date": "2026-04-29",
+    "distance": 16483.3,
+    "elevation_gain": 48.0,
+    "id": "18310648653",
+    "moving_time": 5006.0,
+    "name": "5x2km@T15K",
+    "raw_activity_type": "Run",
+    "raw_type": "Run",
+    "start_date_local": "2026-04-29T18:58:20Z",
+    "type": "Run",
+    "year": 2026
   }
 ]
