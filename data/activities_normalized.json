@@ -20252,5 +20252,31 @@
     "start_date_local": "2026-05-04T07:33:10Z",
     "type": "Run",
     "year": 2026
+  },
+  {
+    "date": "2026-05-07",
+    "distance": 0.0,
+    "elevation_gain": 0.0,
+    "id": "18416835559",
+    "moving_time": 3506.0,
+    "name": "Evening Workout",
+    "raw_activity_type": "Workout",
+    "raw_type": "Workout",
+    "start_date_local": "2026-05-07T19:23:34Z",
+    "type": "Workout",
+    "year": 2026
+  },
+  {
+    "date": "2026-05-08",
+    "distance": 13963.9,
+    "elevation_gain": 43.0,
+    "id": "18421606001",
+    "moving_time": 4183.0,
+    "name": "3x3km@T21K",
+    "raw_activity_type": "Run",
+    "raw_type": "Run",
+    "start_date_local": "2026-05-08T07:20:27Z",
+    "type": "Run",
+    "year": 2026
   }
 ]

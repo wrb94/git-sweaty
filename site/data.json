@@ -14021,6 +14021,24 @@
       "type": "Run",
       "url": "https://www.strava.com/activities/18368275824",
       "year": 2026
+    },
+    {
+      "date": "2026-05-07",
+      "hour": 19,
+      "name": "Evening Workout",
+      "subtype": "Workout",
+      "type": "Workout",
+      "url": "https://www.strava.com/activities/18416835559",
+      "year": 2026
+    },
+    {
+      "date": "2026-05-08",
+      "hour": 7,
+      "name": "3x3km@T21K",
+      "subtype": "Run",
+      "type": "Run",
+      "url": "https://www.strava.com/activities/18421606001",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -27037,6 +27055,15 @@
           "distance": 12479.3,
           "elevation_gain": 30.0,
           "moving_time": 3784.0
+        },
+        "2026-05-08": {
+          "activity_ids": [
+            "18421606001"
+          ],
+          "count": 1,
+          "distance": 13963.9,
+          "elevation_gain": 43.0,
+          "moving_time": 4183.0
         }
       },
       "Swim": {
@@ -27301,11 +27328,20 @@
           "distance": 0.0,
           "elevation_gain": 0.0,
           "moving_time": 3481.0
+        },
+        "2026-05-07": {
+          "activity_ids": [
+            "18416835559"
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 3506.0
         }
       }
     }
   },
-  "generated_at": "2026-05-07T15:49:30.844813+00:00",
+  "generated_at": "2026-05-08T15:39:37.351541+00:00",
   "other_bucket": "OtherSports",
   "repo": "wrb94/git-sweaty",
   "source": "strava",
