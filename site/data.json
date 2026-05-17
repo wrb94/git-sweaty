@@ -14075,6 +14075,15 @@
       "type": "Run",
       "url": "https://www.strava.com/activities/18520225053",
       "year": 2026
+    },
+    {
+      "date": "2026-05-17",
+      "hour": 12,
+      "name": "Lunch Run",
+      "subtype": "Run",
+      "type": "Run",
+      "url": "https://www.strava.com/activities/18542394289",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -27127,6 +27136,15 @@
           "distance": 12242.9,
           "elevation_gain": 35.0,
           "moving_time": 3750.0
+        },
+        "2026-05-17": {
+          "activity_ids": [
+            "18542394289"
+          ],
+          "count": 1,
+          "distance": 17898.8,
+          "elevation_gain": 49.0,
+          "moving_time": 5374.0
         }
       },
       "Swim": {
@@ -27413,7 +27431,7 @@
       }
     }
   },
-  "generated_at": "2026-05-16T15:27:50.287677+00:00",
+  "generated_at": "2026-05-17T15:28:33.201509+00:00",
   "other_bucket": "OtherSports",
   "repo": "wrb94/git-sweaty",
   "source": "strava",
