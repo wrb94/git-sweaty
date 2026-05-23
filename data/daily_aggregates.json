@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-22T15:57:29.092489+00:00",
+  "generated_at": "2026-05-23T15:30:21.367093+00:00",
   "years": {
     "2012": {
       "AlpineSki": {
@@ -12660,6 +12660,17 @@
       }
     },
     "2026": {
+      "GravelRide": {
+        "2026-05-22": {
+          "activity_ids": [
+            "18612529229"
+          ],
+          "count": 1,
+          "distance": 60593.6,
+          "elevation_gain": 159.0,
+          "moving_time": 8293.0
+        }
+      },
       "Ride": {
         "2026-02-13": {
           "activity_ids": [
