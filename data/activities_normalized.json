@@ -20395,5 +20395,18 @@
     "start_date_local": "2026-05-22T17:26:36Z",
     "type": "GravelRide",
     "year": 2026
+  },
+  {
+    "date": "2026-05-23",
+    "distance": 12019.6,
+    "elevation_gain": 45.0,
+    "id": "18626091159",
+    "moving_time": 3409.0,
+    "name": "8km@T21K",
+    "raw_activity_type": "Run",
+    "raw_type": "Run",
+    "start_date_local": "2026-05-23T19:36:40Z",
+    "type": "Run",
+    "year": 2026
   }
 ]
