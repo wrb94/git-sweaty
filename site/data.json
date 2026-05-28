@@ -14147,6 +14147,15 @@
       "type": "Ride",
       "url": "https://www.strava.com/activities/18665935411",
       "year": 2026
+    },
+    {
+      "date": "2026-05-27",
+      "hour": 19,
+      "name": "3x4km@T21K",
+      "subtype": "Run",
+      "type": "Run",
+      "url": "https://www.strava.com/activities/18680110264",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -27264,6 +27273,15 @@
           "distance": 12209.2,
           "elevation_gain": 48.0,
           "moving_time": 3717.0
+        },
+        "2026-05-27": {
+          "activity_ids": [
+            "18680110264"
+          ],
+          "count": 1,
+          "distance": 14826.0,
+          "elevation_gain": 48.0,
+          "moving_time": 4358.0
         }
       },
       "Swim": {
@@ -27559,7 +27577,7 @@
       }
     }
   },
-  "generated_at": "2026-05-27T16:22:19.740572+00:00",
+  "generated_at": "2026-05-28T16:30:45.066686+00:00",
   "other_bucket": "OtherSports",
   "repo": "wrb94/git-sweaty",
   "source": "strava",
