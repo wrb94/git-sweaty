@@ -20512,5 +20512,18 @@
     "start_date_local": "2026-06-03T07:23:45Z",
     "type": "Run",
     "year": 2026
+  },
+  {
+    "date": "2026-06-06",
+    "distance": 21224.7,
+    "elevation_gain": 44.0,
+    "id": "18820469742",
+    "moving_time": 6010.0,
+    "name": "12 Nocny Wroc\u0142aw P\u00f3\u0142maraton",
+    "raw_activity_type": "Run",
+    "raw_type": "Run",
+    "start_date_local": "2026-06-06T22:09:40Z",
+    "type": "Run",
+    "year": 2026
   }
 ]
