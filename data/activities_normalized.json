@@ -20525,5 +20525,31 @@
     "start_date_local": "2026-06-06T22:09:40Z",
     "type": "Run",
     "year": 2026
+  },
+  {
+    "date": "2026-07-09",
+    "distance": 8687.1,
+    "elevation_gain": 58.0,
+    "id": "19246526318",
+    "moving_time": 1362.0,
+    "name": "Zwift - Loop de loop de loop in Paris",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-07-09T20:09:16Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-07-09",
+    "distance": 7288.2,
+    "elevation_gain": 73.0,
+    "id": "19246735934",
+    "moving_time": 910.0,
+    "name": "Zwift - Pacer Group Ride with Bernie",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-07-09T20:32:47Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
