@@ -20551,5 +20551,44 @@
     "start_date_local": "2026-07-09T20:32:47Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-07-11",
+    "distance": 25801.2,
+    "elevation_gain": 195.0,
+    "id": "19272574508",
+    "moving_time": 3317.0,
+    "name": "Zwift - Montmartre Mixer in Paris",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-07-11T19:07:06Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-07-12",
+    "distance": 20576.2,
+    "elevation_gain": 32.0,
+    "id": "19280655213",
+    "moving_time": 2417.0,
+    "name": "Zwift - Tempus Fugit in Watopia",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-07-12T12:44:08Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-07-12",
+    "distance": 12075.9,
+    "elevation_gain": 52.0,
+    "id": "19281069993",
+    "moving_time": 1513.0,
+    "name": "Zwift - Temple Trek in Watopia",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-07-12T13:29:45Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
