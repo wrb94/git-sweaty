@@ -14255,6 +14255,24 @@
       "type": "VirtualRide",
       "url": "https://www.strava.com/activities/19281069993",
       "year": 2026
+    },
+    {
+      "date": "2026-07-14",
+      "hour": 19,
+      "name": "Zwift - Casse-Pattes in France",
+      "subtype": "VirtualRide",
+      "type": "VirtualRide",
+      "url": "https://www.strava.com/activities/19312695686",
+      "year": 2026
+    },
+    {
+      "date": "2026-07-14",
+      "hour": 20,
+      "name": "Zwift - Jarvis Seaside Sprint in Watopia",
+      "subtype": "VirtualRide",
+      "type": "VirtualRide",
+      "url": "https://www.strava.com/activities/19313251295",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -27591,6 +27609,16 @@
           "distance": 32652.1,
           "elevation_gain": 84.0,
           "moving_time": 3930.0
+        },
+        "2026-07-14": {
+          "activity_ids": [
+            "19312695686",
+            "19313251295"
+          ],
+          "count": 2,
+          "distance": 38700.2,
+          "elevation_gain": 253.0,
+          "moving_time": 4861.0
         }
       },
       "Workout": {
@@ -27759,7 +27787,7 @@
       }
     }
   },
-  "generated_at": "2026-07-14T15:34:48.251625+00:00",
+  "generated_at": "2026-07-15T15:35:35.373751+00:00",
   "other_bucket": "OtherSports",
   "repo": "wrb94/git-sweaty",
   "source": "strava",

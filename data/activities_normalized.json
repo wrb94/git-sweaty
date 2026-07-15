@@ -20590,5 +20590,31 @@
     "start_date_local": "2026-07-12T13:29:45Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-07-14",
+    "distance": 24667.2,
+    "elevation_gain": 155.0,
+    "id": "19312695686",
+    "moving_time": 3014.0,
+    "name": "Zwift - Casse-Pattes in France",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-07-14T19:05:54Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-07-14",
+    "distance": 14033.0,
+    "elevation_gain": 98.0,
+    "id": "19313251295",
+    "moving_time": 1847.0,
+    "name": "Zwift - Jarvis Seaside Sprint in Watopia",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-07-14T20:02:38Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
