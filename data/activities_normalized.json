@@ -20616,5 +20616,31 @@
     "start_date_local": "2026-07-14T20:02:38Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-07-16",
+    "distance": 30327.4,
+    "elevation_gain": 257.0,
+    "id": "19339509481",
+    "moving_time": 3619.0,
+    "name": "Zwift - Figure 8 in Watopia",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-07-16T18:26:11Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-07-16",
+    "distance": 10258.5,
+    "elevation_gain": 112.0,
+    "id": "19339870209",
+    "moving_time": 1276.0,
+    "name": "Zwift - Hilly Route in Watopia",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-07-16T19:32:41Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
