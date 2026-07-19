@@ -20642,5 +20642,57 @@
     "start_date_local": "2026-07-16T19:32:41Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-07-18",
+    "distance": 18121.6,
+    "elevation_gain": 75.0,
+    "id": "19366353423",
+    "moving_time": 2117.0,
+    "name": "Zwift - Big Gear SST - 3x5",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-07-18T18:58:24Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-07-18",
+    "distance": 21101.5,
+    "elevation_gain": 196.0,
+    "id": "19366830593",
+    "moving_time": 2468.0,
+    "name": "Zwift - Petite Douleur in France",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-07-18T19:38:29Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-07-19",
+    "distance": 24147.6,
+    "elevation_gain": 169.0,
+    "id": "19374049047",
+    "moving_time": 3063.0,
+    "name": "Zwift - Aerobic Sustainability",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-07-19T11:33:27Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-07-19",
+    "distance": 21575.3,
+    "elevation_gain": 60.0,
+    "id": "19374781398",
+    "moving_time": 2409.0,
+    "name": "Zwift - Tick Tock in Watopia",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-07-19T12:30:08Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
