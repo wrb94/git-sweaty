@@ -20694,5 +20694,31 @@
     "start_date_local": "2026-07-19T12:30:08Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-07-21",
+    "distance": 8762.7,
+    "elevation_gain": 17.0,
+    "id": "19405863510",
+    "moving_time": 975.0,
+    "name": "Zwift - Sir Bradley Wiggins | Ultimate Warm Up",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-07-21T18:40:40Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-07-21",
+    "distance": 37051.3,
+    "elevation_gain": 207.0,
+    "id": "19406957305",
+    "moving_time": 4059.0,
+    "name": "Zwift - Three Musketeers in France",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-07-21T18:59:35Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
