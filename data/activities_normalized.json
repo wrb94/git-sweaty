@@ -20720,5 +20720,31 @@
     "start_date_local": "2026-07-21T18:59:35Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-07-23",
+    "distance": 19051.7,
+    "elevation_gain": 105.0,
+    "id": "19434851466",
+    "moving_time": 2114.0,
+    "name": "Zwift - SST Bursts 8",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-07-23T18:42:50Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-07-23",
+    "distance": 17251.7,
+    "elevation_gain": 123.0,
+    "id": "19435454327",
+    "moving_time": 1859.0,
+    "name": "Zwift - Cr\u00eape Escape in Paris",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-07-23T19:30:15Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
