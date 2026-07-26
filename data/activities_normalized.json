@@ -20746,5 +20746,44 @@
     "start_date_local": "2026-07-23T19:30:15Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-07-25",
+    "distance": 22427.2,
+    "elevation_gain": 162.0,
+    "id": "19462501530",
+    "moving_time": 2711.0,
+    "name": "Zwift - HIIT 80% FTP #2",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-07-25T18:47:09Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-07-25",
+    "distance": 19040.7,
+    "elevation_gain": 224.0,
+    "id": "19463031217",
+    "moving_time": 2203.0,
+    "name": "Zwift - Loopin Lava in Watopia",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-07-25T19:44:51Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-07-26",
+    "distance": 35075.7,
+    "elevation_gain": 286.0,
+    "id": "19470397448",
+    "moving_time": 4304.0,
+    "name": "Zwift - Norseman workout: Eidfjord",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-07-26T11:20:24Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
