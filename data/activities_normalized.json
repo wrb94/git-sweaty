@@ -20785,5 +20785,31 @@
     "start_date_local": "2026-07-26T11:20:24Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-07-28",
+    "distance": 13142.5,
+    "elevation_gain": 51.0,
+    "id": "19503169968",
+    "moving_time": 1420.0,
+    "name": "Zwift - Control The Burn",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-07-28T18:56:59Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-07-28",
+    "distance": 24485.0,
+    "elevation_gain": 244.0,
+    "id": "19504054053",
+    "moving_time": 2714.0,
+    "name": "Zwift - Hell of the North in France",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-07-28T19:31:49Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
