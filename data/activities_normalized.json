@@ -20811,5 +20811,44 @@
     "start_date_local": "2026-07-28T19:31:49Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-08-01",
+    "distance": 9067.5,
+    "elevation_gain": 15.0,
+    "id": "19558495485",
+    "moving_time": 961.0,
+    "name": "Zwift - Control The Burn",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-08-01T18:05:26Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-08-01",
+    "distance": 34249.9,
+    "elevation_gain": 157.0,
+    "id": "19559268059",
+    "moving_time": 3628.0,
+    "name": "Zwift - Triple Flat Loops in Watopia",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-08-01T18:24:44Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-08-02",
+    "distance": 31476.7,
+    "elevation_gain": 156.0,
+    "id": "19567997303",
+    "moving_time": 3438.0,
+    "name": "Zwift - 40/20's into FTP #1",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-08-02T12:04:30Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
