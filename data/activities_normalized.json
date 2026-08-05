@@ -20850,5 +20850,18 @@
     "start_date_local": "2026-08-02T12:04:30Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-08-04",
+    "distance": 16350.8,
+    "elevation_gain": 117.0,
+    "id": "19601710687",
+    "moving_time": 1777.0,
+    "name": "Zwift - La Boucle in Paris",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-08-04T20:05:54Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
