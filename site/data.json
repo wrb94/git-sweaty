@@ -14453,6 +14453,33 @@
       "type": "VirtualRide",
       "url": "https://www.strava.com/activities/19630116737",
       "year": 2026
+    },
+    {
+      "date": "2026-08-08",
+      "hour": 19,
+      "name": "Zwift - Big Gear SST - 3x5",
+      "subtype": "VirtualRide",
+      "type": "VirtualRide",
+      "url": "https://www.strava.com/activities/19658349198",
+      "year": 2026
+    },
+    {
+      "date": "2026-08-08",
+      "hour": 20,
+      "name": "Zwift - Whole Lotta Lava in Watopia",
+      "subtype": "VirtualRide",
+      "type": "VirtualRide",
+      "url": "https://www.strava.com/activities/19658745896",
+      "year": 2026
+    },
+    {
+      "date": "2026-08-09",
+      "hour": 12,
+      "name": "Lunch Swim",
+      "subtype": "Swim",
+      "type": "Swim",
+      "url": "https://www.strava.com/activities/19668354000",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -27644,6 +27671,15 @@
           "distance": 2500.0,
           "elevation_gain": 0.0,
           "moving_time": 2754.0
+        },
+        "2026-08-09": {
+          "activity_ids": [
+            "19668354000"
+          ],
+          "count": 1,
+          "distance": 1500.0,
+          "elevation_gain": 0.0,
+          "moving_time": 1810.0
         }
       },
       "VirtualRide": {
@@ -27915,6 +27951,16 @@
           "distance": 34447.8,
           "elevation_gain": 247.0,
           "moving_time": 3783.0
+        },
+        "2026-08-08": {
+          "activity_ids": [
+            "19658349198",
+            "19658745896"
+          ],
+          "count": 2,
+          "distance": 32220.699999999997,
+          "elevation_gain": 315.0,
+          "moving_time": 4039.0
         }
       },
       "Workout": {
@@ -28083,7 +28129,7 @@
       }
     }
   },
-  "generated_at": "2026-08-08T15:34:48.507282+00:00",
+  "generated_at": "2026-08-09T15:36:29.859417+00:00",
   "other_bucket": "OtherSports",
   "repo": "wrb94/git-sweaty",
   "source": "strava",

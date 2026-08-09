@@ -20876,5 +20876,44 @@
     "start_date_local": "2026-08-06T18:26:57Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-08-08",
+    "distance": 16037.4,
+    "elevation_gain": 137.0,
+    "id": "19658349198",
+    "moving_time": 2236.0,
+    "name": "Zwift - Big Gear SST - 3x5",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-08-08T19:23:42Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-08-08",
+    "distance": 16183.3,
+    "elevation_gain": 178.0,
+    "id": "19658745896",
+    "moving_time": 1803.0,
+    "name": "Zwift - Whole Lotta Lava in Watopia",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-08-08T20:09:04Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-08-09",
+    "distance": 1500.0,
+    "elevation_gain": 0.0,
+    "id": "19668354000",
+    "moving_time": 1810.0,
+    "name": "Lunch Swim",
+    "raw_activity_type": "Swim",
+    "raw_type": "Swim",
+    "start_date_local": "2026-08-09T12:06:51Z",
+    "type": "Swim",
+    "year": 2026
   }
 ]
