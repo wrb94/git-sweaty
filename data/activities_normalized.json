@@ -20915,5 +20915,18 @@
     "start_date_local": "2026-08-09T12:06:51Z",
     "type": "Swim",
     "year": 2026
+  },
+  {
+    "date": "2026-08-13",
+    "distance": 48744.3,
+    "elevation_gain": 153.0,
+    "id": "19729866645",
+    "moving_time": 6124.0,
+    "name": "Sport to zdrowie p\u00f3ki ortopeda si\u0119 nie dowie \ud83d\ude0e",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-08-13T18:06:33Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
