@@ -27322,7 +27322,7 @@
           ],
           "count": 1,
           "distance": 57120.3,
-          "elevation_gain": 259.0,
+          "elevation_gain": 198.7,
           "moving_time": 7059.0
         }
       },
@@ -28165,7 +28165,7 @@
       }
     }
   },
-  "generated_at": "2026-08-16T15:07:13.660006+00:00",
+  "generated_at": "2026-08-17T15:09:32.884256+00:00",
   "other_bucket": "OtherSports",
   "repo": "wrb94/git-sweaty",
   "source": "strava",
