@@ -20993,5 +20993,18 @@
     "start_date_local": "2026-08-23T11:53:41Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-08-25",
+    "distance": 56778.1,
+    "elevation_gain": 196.1,
+    "id": "19898965819",
+    "moving_time": 6855.0,
+    "name": "New wheels day \ud83d\udc4c",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-08-25T17:59:57Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
