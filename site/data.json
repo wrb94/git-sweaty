@@ -14606,6 +14606,15 @@
       "type": "Ride",
       "url": "https://www.strava.com/activities/20059437175",
       "year": 2026
+    },
+    {
+      "date": "2026-09-08",
+      "hour": 17,
+      "name": "Evening Ride",
+      "subtype": "Ride",
+      "type": "Ride",
+      "url": "https://www.strava.com/activities/20091594772",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -27513,6 +27522,15 @@
           "distance": 76886.4,
           "elevation_gain": 442.0,
           "moving_time": 9313.0
+        },
+        "2026-09-08": {
+          "activity_ids": [
+            "20091594772"
+          ],
+          "count": 1,
+          "distance": 54493.8,
+          "elevation_gain": 175.3,
+          "moving_time": 6694.0
         }
       },
       "Run": {
@@ -28381,7 +28399,7 @@
       }
     }
   },
-  "generated_at": "2026-09-08T15:17:28.389042+00:00",
+  "generated_at": "2026-09-09T15:15:57.621413+00:00",
   "other_bucket": "OtherSports",
   "repo": "wrb94/git-sweaty",
   "source": "strava",
