@@ -21123,5 +21123,18 @@
     "start_date_local": "2026-09-10T17:38:03Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-09-13",
+    "distance": 76508.4,
+    "elevation_gain": 576.0,
+    "id": "20156987825",
+    "moving_time": 8958.0,
+    "name": "Zryw zrywa przerzutki \ud83e\udee0",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-09-13T10:45:51Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
