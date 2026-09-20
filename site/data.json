@@ -14637,7 +14637,7 @@
     {
       "date": "2026-09-19",
       "hour": 10,
-      "name": "Morning Hike",
+      "name": "Szrenica - \u0141abski Szczyt",
       "subtype": "Hike",
       "type": "Hike",
       "url": "https://www.strava.com/activities/20241756656",
@@ -27330,9 +27330,9 @@
             "20241756656"
           ],
           "count": 1,
-          "distance": 20842.2,
-          "elevation_gain": 979.0,
-          "moving_time": 16132.0
+          "distance": 19611.3,
+          "elevation_gain": 995.2,
+          "moving_time": 15975.0
         }
       },
       "Ride": {
@@ -28455,7 +28455,7 @@
       }
     }
   },
-  "generated_at": "2026-09-19T15:13:39.662887+00:00",
+  "generated_at": "2026-09-20T15:13:50.145109+00:00",
   "other_bucket": "OtherSports",
   "repo": "wrb94/git-sweaty",
   "source": "strava",
