@@ -14664,10 +14664,19 @@
     {
       "date": "2026-09-27",
       "hour": 9,
-      "name": "Morning Ride",
+      "name": "Na obiad do rodzic\u00f3w \ud83d\ude4c",
       "subtype": "Ride",
       "type": "Ride",
       "url": "https://www.strava.com/activities/20352354427",
+      "year": 2026
+    },
+    {
+      "date": "2026-09-27",
+      "hour": 16,
+      "name": "Powr\u00f3t z pe\u0142nym brzuchem \ud83d\ude05",
+      "subtype": "Ride",
+      "type": "Ride",
+      "url": "https://www.strava.com/activities/20354950042",
       "year": 2026
     }
   ],
@@ -27630,17 +27639,18 @@
           ],
           "count": 1,
           "distance": 49788.5,
-          "elevation_gain": 172.0,
+          "elevation_gain": 111.5,
           "moving_time": 6020.0
         },
         "2026-09-27": {
           "activity_ids": [
-            "20352354427"
+            "20352354427",
+            "20354950042"
           ],
-          "count": 1,
-          "distance": 85781.4,
-          "elevation_gain": 452.0,
-          "moving_time": 10218.0
+          "count": 2,
+          "distance": 161502.5,
+          "elevation_gain": 458.09999999999997,
+          "moving_time": 19427.0
         }
       },
       "Run": {
@@ -28509,7 +28519,7 @@
       }
     }
   },
-  "generated_at": "2026-09-27T15:14:38.037805+00:00",
+  "generated_at": "2026-09-28T15:17:55.910457+00:00",
   "other_bucket": "OtherSports",
   "repo": "wrb94/git-sweaty",
   "source": "strava",

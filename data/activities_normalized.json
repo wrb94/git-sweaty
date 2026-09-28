@@ -21166,7 +21166,7 @@
   {
     "date": "2026-09-26",
     "distance": 49788.5,
-    "elevation_gain": 172.0,
+    "elevation_gain": 111.5,
     "id": "20335457892",
     "moving_time": 6020.0,
     "name": "Morning Ride",
@@ -21179,13 +21179,26 @@
   {
     "date": "2026-09-27",
     "distance": 85781.4,
-    "elevation_gain": 452.0,
+    "elevation_gain": 257.4,
     "id": "20352354427",
     "moving_time": 10218.0,
-    "name": "Morning Ride",
+    "name": "Na obiad do rodzic\u00f3w \ud83d\ude4c",
     "raw_activity_type": "Ride",
     "raw_type": "Ride",
     "start_date_local": "2026-09-27T09:37:11Z",
+    "type": "Ride",
+    "year": 2026
+  },
+  {
+    "date": "2026-09-27",
+    "distance": 75721.1,
+    "elevation_gain": 200.7,
+    "id": "20354950042",
+    "moving_time": 9209.0,
+    "name": "Powr\u00f3t z pe\u0142nym brzuchem \ud83d\ude05",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-09-27T16:12:39Z",
     "type": "Ride",
     "year": 2026
   }
