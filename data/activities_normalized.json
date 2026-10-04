@@ -21227,5 +21227,18 @@
     "start_date_local": "2026-10-02T17:17:41Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-10-04",
+    "distance": 127551.0,
+    "elevation_gain": 498.2,
+    "id": "20450398228",
+    "moving_time": 15418.0,
+    "name": "Mur Berli\u0144ski - Twardog\u00f3ra",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-10-04T10:39:06Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]

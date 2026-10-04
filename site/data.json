@@ -14696,6 +14696,15 @@
       "type": "Ride",
       "url": "https://www.strava.com/activities/20422538597",
       "year": 2026
+    },
+    {
+      "date": "2026-10-04",
+      "hour": 10,
+      "name": "Mur Berli\u0144ski - Twardog\u00f3ra",
+      "subtype": "Ride",
+      "type": "Ride",
+      "url": "https://www.strava.com/activities/20450398228",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -27687,6 +27696,15 @@
           "distance": 50301.6,
           "elevation_gain": 115.5,
           "moving_time": 6088.0
+        },
+        "2026-10-04": {
+          "activity_ids": [
+            "20450398228"
+          ],
+          "count": 1,
+          "distance": 127551.0,
+          "elevation_gain": 498.2,
+          "moving_time": 15418.0
         }
       },
       "Run": {
@@ -28555,7 +28573,7 @@
       }
     }
   },
-  "generated_at": "2026-10-03T18:36:08.104263+00:00",
+  "generated_at": "2026-10-04T18:34:51.411364+00:00",
   "other_bucket": "OtherSports",
   "repo": "wrb94/git-sweaty",
   "source": "strava",
