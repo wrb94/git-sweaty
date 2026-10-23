@@ -21240,5 +21240,18 @@
     "start_date_local": "2026-10-04T10:39:06Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-10-22",
+    "distance": 0.0,
+    "elevation_gain": 0.0,
+    "id": "20692663516",
+    "moving_time": 3115.0,
+    "name": "Evening Workout",
+    "raw_activity_type": "Workout",
+    "raw_type": "Workout",
+    "start_date_local": "2026-10-22T19:21:36Z",
+    "type": "Workout",
+    "year": 2026
   }
 ]
