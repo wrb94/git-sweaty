@@ -14714,6 +14714,15 @@
       "type": "Workout",
       "url": "https://www.strava.com/activities/20692663516",
       "year": 2026
+    },
+    {
+      "date": "2026-10-25",
+      "hour": 13,
+      "name": "Zwift - Sand And Sequoias in Watopia",
+      "subtype": "VirtualRide",
+      "type": "VirtualRide",
+      "url": "https://www.strava.com/activities/20725886286",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -28414,6 +28423,15 @@
           "distance": 32220.699999999997,
           "elevation_gain": 315.0,
           "moving_time": 4039.0
+        },
+        "2026-10-25": {
+          "activity_ids": [
+            "20725886286"
+          ],
+          "count": 1,
+          "distance": 23031.9,
+          "elevation_gain": 181.0,
+          "moving_time": 2510.0
         }
       },
       "Workout": {
@@ -28591,7 +28609,7 @@
       }
     }
   },
-  "generated_at": "2026-10-24T17:59:32.297082+00:00",
+  "generated_at": "2026-10-25T18:16:45.914511+00:00",
   "other_bucket": "OtherSports",
   "repo": "wrb94/git-sweaty",
   "source": "strava",
