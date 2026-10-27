@@ -11,6 +11,7 @@ on:
         type: choice
         options:
           - strava
+          - strava-kody
           - garmin
         default: strava
       update_readme_link:
@@ -56,18 +57,26 @@ jobs:
           pip install -r requirements.txt
 
       - name: Resolve source
+        id: resolve-source
         env:
           WORKFLOW_SOURCE: ${{ github.event_name == 'workflow_dispatch' && inputs.source || '' }}
           DASHBOARD_SOURCE: ${{ vars.DASHBOARD_SOURCE }}
         run: |
           source="${WORKFLOW_SOURCE:-${DASHBOARD_SOURCE:-strava}}"
           source="$(echo "${source}" | tr '[:upper:]' '[:lower:]' | xargs)"
-          if [[ "${source}" != "strava" && "${source}" != "garmin" ]]; then
-            echo "Unsupported source '${source}'. Expected strava or garmin."
+          if [[ "${source}" != "strava" && "${source}" != "strava-kody" && "${source}" != "garmin" ]]; then
+            echo "Unsupported source '${source}'. Expected strava, strava-kody, or garmin."
             exit 1
           fi
           echo "SYNC_SOURCE=${source}" >> "$GITHUB_ENV"
+          echo "source=${source}" >> "$GITHUB_OUTPUT"
           echo "Using source: ${source}"
+
+      - name: Set up Node for Kody CLI
+        if: ${{ steps.resolve-source.outputs.source == 'strava-kody' }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
 
       - name: Validate required source secrets
         env:
@@ -75,6 +84,7 @@ jobs:
           STRAVA_CLIENT_ID: ${{ secrets.STRAVA_CLIENT_ID }}
           STRAVA_CLIENT_SECRET: ${{ secrets.STRAVA_CLIENT_SECRET }}
           STRAVA_REFRESH_TOKEN: ${{ secrets.STRAVA_REFRESH_TOKEN }}
+          KODY_API_TOKEN: ${{ secrets.KODY_API_TOKEN }}
           GARMIN_TOKENS_B64: ${{ secrets.GARMIN_TOKENS_B64 }}
           GARMIN_EMAIL: ${{ secrets.GARMIN_EMAIL }}
           GARMIN_PASSWORD: ${{ secrets.GARMIN_PASSWORD }}
@@ -89,8 +99,10 @@ jobs:
             if [[ -z "$GARMIN_TOKENS_B64" && ( -z "$GARMIN_EMAIL" || -z "$GARMIN_PASSWORD" ) ]]; then
               missing+=("GARMIN_TOKENS_B64 or GARMIN_EMAIL+GARMIN_PASSWORD")
             fi
+          elif [[ "${SYNC_SOURCE}" == "strava-kody" ]]; then
+            [[ -n "$KODY_API_TOKEN" ]] || missing+=("KODY_API_TOKEN")
           else
-            missing+=("SYNC_SOURCE must be strava or garmin")
+            missing+=("SYNC_SOURCE must be strava, strava-kody, or garmin")
           fi
 
           if [ ${#missing[@]} -gt 0 ]; then
@@ -126,6 +138,17 @@ jobs:
             client_id: "${STRAVA_CLIENT_ID}"
             client_secret: "${STRAVA_CLIENT_SECRET}"
             refresh_token: "${STRAVA_REFRESH_TOKEN}"
+          CONFIG
+            if [[ -n "${DASHBOARD_STRAVA_PROFILE_URL}" ]]; then
+              echo "  profile_url: \"${DASHBOARD_STRAVA_PROFILE_URL}\"" >> config.local.yaml
+            fi
+            normalized_links_value="$(echo "${DASHBOARD_STRAVA_ACTIVITY_LINKS}" | tr '[:upper:]' '[:lower:]' | xargs)"
+            if [[ "${normalized_links_value}" == "1" || "${normalized_links_value}" == "true" || "${normalized_links_value}" == "yes" || "${normalized_links_value}" == "y" || "${normalized_links_value}" == "on" ]]; then
+              echo "  include_activity_urls: true" >> config.local.yaml
+            fi
+          elif [[ "${SYNC_SOURCE}" == "strava-kody" ]]; then
+            cat <<CONFIG >> config.local.yaml
+          strava:
           CONFIG
             if [[ -n "${DASHBOARD_STRAVA_PROFILE_URL}" ]]; then
               echo "  profile_url: \"${DASHBOARD_STRAVA_PROFILE_URL}\"" >> config.local.yaml
@@ -210,6 +233,7 @@ jobs:
             rm -f data/daily_aggregates.json
             rm -f data/backfill_state.json
             rm -f data/backfill_state_strava.json
+            rm -f data/athletes_strava-kody.json
             rm -f data/backfill_state_garmin.json
             rm -f data/last_sync_summary.json
             rm -f data/last_sync_summary.txt
@@ -222,6 +246,7 @@ jobs:
         env:
           DASHBOARD_REPO: ${{ vars.DASHBOARD_REPO }}
           GITHUB_TOKEN: ${{ github.token }}
+          KODY_API_TOKEN: ${{ secrets.KODY_API_TOKEN }}
           UPDATE_README_LINK: ${{ github.event_name != 'workflow_dispatch' || inputs.update_readme_link }}
         run: |
           set -euo pipefail

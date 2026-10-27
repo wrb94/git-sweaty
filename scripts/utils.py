@@ -8,7 +8,7 @@ import yaml
 CONFIG_PATH = "config.yaml"
 CONFIG_LOCAL_PATH = "config.local.yaml"
 DEFAULT_SOURCE = "strava"
-SUPPORTED_SOURCES = {"strava", "garmin"}
+SUPPORTED_SOURCES = {"strava", "strava-kody", "garmin"}
 
 
 def _deep_merge(base: Dict[str, Any], override: Dict[str, Any]) -> Dict[str, Any]:
@@ -43,6 +43,12 @@ def normalize_source(value: Any) -> str:
         allowed = ", ".join(sorted(SUPPORTED_SOURCES))
         raise ValueError(f"Unsupported source '{source}'. Supported values: {allowed}.")
     return source
+
+
+def provider_for_source(source: Any) -> str:
+    """Return the activity provider represented by a dashboard source option."""
+    normalized = normalize_source(source)
+    return "strava" if normalized == "strava-kody" else normalized
 
 
 def raw_activity_dir(source: str) -> str:

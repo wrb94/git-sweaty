@@ -15,6 +15,7 @@ from utils import (
     format_elevation,
     load_config,
     normalize_source,
+    provider_for_source,
     parse_iso_datetime,
     read_json,
     utc_now,
@@ -453,11 +454,12 @@ def generate(write_svgs: bool = True):
                     f.write(svg)
 
     source = normalize_source(config.get("source", "strava"))
-    include_activity_urls = _activity_links_enabled_from_config(config, source)
-    load_activities_kwargs = {"source": source}
-    if source == "strava":
+    provider = provider_for_source(source)
+    include_activity_urls = _activity_links_enabled_from_config(config, provider)
+    load_activities_kwargs = {"source": provider}
+    if provider == "strava":
         load_activities_kwargs["include_strava_activity_urls"] = include_activity_urls
-    elif source == "garmin":
+    elif provider == "garmin":
         load_activities_kwargs["include_garmin_activity_urls"] = include_activity_urls
     site_payload = {
         "source": source,
@@ -471,12 +473,12 @@ def generate(write_svgs: bool = True):
         "week_start": week_start,
         "activities": _load_activities(**load_activities_kwargs),
     }
-    profile_url = _profile_url_from_config(config, source)
+    profile_url = _profile_url_from_config(config, provider)
     if profile_url:
         site_payload["profile_url"] = profile_url
-        if source == "strava":
+        if provider == "strava":
             site_payload["strava_profile_url"] = profile_url
-        elif source == "garmin":
+        elif provider == "garmin":
             site_payload["garmin_profile_url"] = profile_url
     repo_slug = _repo_slug_from_git()
     if repo_slug:

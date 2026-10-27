@@ -85,6 +85,7 @@ STRAVA_REQUIRED_SECRET_NAMES = {
     "STRAVA_CLIENT_SECRET",
     "STRAVA_REFRESH_TOKEN",
 }
+KODY_REQUIRED_SECRET_NAMES = {"KODY_API_TOKEN"}
 GARMIN_PRIMARY_SECRET_NAMES = {"GARMIN_TOKENS_B64"}
 GARMIN_FALLBACK_SECRET_NAMES = {"GARMIN_EMAIL", "GARMIN_PASSWORD"}
 
@@ -591,7 +592,7 @@ def _existing_dashboard_source(repo: str) -> Optional[str]:
     if not value:
         return None
     normalized = value.strip().lower()
-    if normalized in {"strava", "garmin"}:
+    if normalized in {"strava", "strava-kody", "garmin"}:
         return normalized
     return None
 
@@ -751,6 +752,8 @@ def _has_required_source_secrets(source: str, secret_names: set[str]) -> bool:
     normalized_source = str(source or "").strip().lower()
     if normalized_source == "strava":
         return STRAVA_REQUIRED_SECRET_NAMES.issubset(secret_names)
+    if normalized_source == "strava-kody":
+        return KODY_REQUIRED_SECRET_NAMES.issubset(secret_names)
     if normalized_source == "garmin":
         has_primary = GARMIN_PRIMARY_SECRET_NAMES.issubset(secret_names)
         has_fallback = GARMIN_FALLBACK_SECRET_NAMES.issubset(secret_names)
@@ -789,6 +792,7 @@ def _has_explicit_setup_overrides(args: argparse.Namespace) -> bool:
             "strava_activity_links",
             "garmin_profile_url",
             "garmin_activity_links",
+            "kody_api_token",
         )
     )
 
@@ -797,6 +801,8 @@ def _has_explicit_credentials_for_source(args: argparse.Namespace, source: str) 
     normalized_source = str(source or "").strip().lower()
     if normalized_source == "strava":
         return bool(getattr(args, "client_id", None) or getattr(args, "client_secret", None))
+    if normalized_source == "strava-kody":
+        return bool(getattr(args, "kody_api_token", None))
     if normalized_source == "garmin":
         return bool(
             getattr(args, "garmin_token_store_b64", None)
@@ -1096,12 +1102,13 @@ def _prompt_choice(
 def _prompt_source() -> str:
     print("\nChoose activity source:")
     print("  1) Strava")
-    print("  2) Garmin")
+    print("  2) Strava via Kody")
+    print("  3) Garmin")
     selected = _prompt_choice(
-        "Selection (enter 1 or 2): ",
-        {"1": "strava", "2": "garmin"},
+        "Selection (enter 1, 2, or 3): ",
+        {"1": "strava", "2": "strava-kody", "3": "garmin"},
         default=None,
-        invalid_message="Please enter '1' or '2'.",
+        invalid_message="Please enter '1', '2', or '3'.",
     )
     return selected
 
@@ -1115,7 +1122,7 @@ def _resolve_source(
         return args.source
     if interactive:
         return _prompt_source()
-    if previous_source in {"strava", "garmin"}:
+    if previous_source in {"strava", "strava-kody", "garmin"}:
         return previous_source
     return DEFAULT_SOURCE
 
@@ -2684,7 +2691,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--source",
-        choices=["strava", "garmin"],
+        choices=["strava", "strava-kody", "garmin"],
         default=None,
         help="Activity source to configure.",
     )
@@ -2703,6 +2710,14 @@ def parse_args() -> argparse.Namespace:
         "--client-secret",
         default=None,
         help="Strava client secret.",
+    )
+    parser.add_argument(
+        "--kody-api-token",
+        default=None,
+        help=(
+            "Kody API token with local-execute, account:read, integration:read, "
+            "and integration:use scopes for Strava via Kody."
+        ),
     )
     parser.add_argument(
         "--garmin-token-store-b64",
@@ -2888,7 +2903,7 @@ def main() -> int:
     strava_profile_url_prefilled = ""
     garmin_profile_link_enabled_override: Optional[bool] = None
     garmin_profile_url_prefilled = ""
-    if source == "strava":
+    if source in {"strava", "strava-kody"}:
         if reuse_existing_settings:
             strava_activity_links_enabled = bool(_existing_dashboard_strava_activity_links(repo))
             strava_profile_url_prefilled = _existing_dashboard_strava_profile_url(repo)
@@ -2985,6 +3000,34 @@ def main() -> int:
             prefilled_url=strava_profile_url_prefilled,
             prompt_if_missing=False if strava_profile_link_enabled_override is not None else True,
         )
+    elif source == "strava-kody":
+        if update_credentials:
+            print(
+                "\nCreate a Kody API token with local-execute, account:read, "
+                "integration:read, and integration:use scopes. Kody tokens can last up to 90 days."
+            )
+            if not interactive and not args.kody_api_token:
+                raise RuntimeError(
+                    "Missing KODY_API_TOKEN in non-interactive mode. Re-run with --kody-api-token."
+                )
+            kody_api_token = _prompt(
+                args.kody_api_token,
+                "KODY_API_TOKEN",
+                secret=True,
+            )
+            if not kody_api_token:
+                raise ValueError("KODY_API_TOKEN is required for Strava via Kody.")
+            _set_secret("KODY_API_TOKEN", kody_api_token, repo)
+            configured_secret_names.append("KODY_API_TOKEN")
+        strava_profile_url = _resolve_strava_profile_url(
+            args,
+            interactive and update_credentials,
+            repo,
+            tokens={},
+            enabled_override=strava_profile_link_enabled_override,
+            prefilled_url=strava_profile_url_prefilled,
+            prompt_if_missing=False if strava_profile_link_enabled_override is not None else True,
+        )
     elif source == "garmin":
         token_store_b64 = ""
         garmin_email = ""
@@ -3059,6 +3102,14 @@ def main() -> int:
                 )
             ),
         )
+    elif source == "strava-kody":
+        _add_step(
+            steps,
+            name="Kody API token",
+            status=STATUS_OK,
+            detail="KODY_API_TOKEN is configured as a repository secret. Kody tokens can last up to 90 days; renew it before it expires.",
+            manual_help=f"When the Kody token expires, replace KODY_API_TOKEN in {secrets_settings_url} and rerun the workflow.",
+        )
 
     variable_errors = []
     print("Updating repository variables via gh...")
@@ -3069,7 +3120,7 @@ def main() -> int:
         ("DASHBOARD_ELEVATION_UNIT", elevation_unit),
         ("DASHBOARD_WEEK_START", week_start),
     ]
-    if source == "strava":
+    if source in {"strava", "strava-kody"}:
         variable_pairs.append(("DASHBOARD_STRAVA_PROFILE_URL", strava_profile_url))
         variable_pairs.append(
             ("DASHBOARD_STRAVA_ACTIVITY_LINKS", "true" if strava_activity_links_enabled else "")
@@ -3098,9 +3149,9 @@ def main() -> int:
         f"DASHBOARD_DISTANCE_UNIT={distance_unit}, DASHBOARD_ELEVATION_UNIT={elevation_unit}, "
         f"DASHBOARD_WEEK_START={week_start}"
     )
-    if source == "strava" and strava_profile_url:
+    if source in {"strava", "strava-kody"} and strava_profile_url:
         variable_summary = f"{variable_summary}, DASHBOARD_STRAVA_PROFILE_URL={strava_profile_url}"
-    if source == "strava" and strava_activity_links_enabled:
+    if source in {"strava", "strava-kody"} and strava_activity_links_enabled:
         variable_summary = f"{variable_summary}, DASHBOARD_STRAVA_ACTIVITY_LINKS=true"
     if source == "garmin" and garmin_profile_url:
         variable_summary = f"{variable_summary}, DASHBOARD_GARMIN_PROFILE_URL={garmin_profile_url}"

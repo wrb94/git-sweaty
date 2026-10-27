@@ -1,5 +1,5 @@
 # Base configuration. Put secrets in config.local.yaml (ignored by git).
-source: "strava"  # "strava" or "garmin"
+source: "strava"  # "strava", "strava-kody", or "garmin"
 
 strava:
   client_id: ""

@@ -8,7 +8,7 @@ from provider_fields import (
     get_nested as _shared_get_nested,
     pick_duration_seconds as _shared_pick_duration_seconds,
 )
-from utils import ensure_dir, load_config, normalize_source, parse_iso_datetime, raw_activity_dir, read_json, write_json
+from utils import ensure_dir, load_config, normalize_source, parse_iso_datetime, provider_for_source, raw_activity_dir, read_json, write_json
 
 OUT_PATH = os.path.join("data", "activities_normalized.json")
 
@@ -122,6 +122,7 @@ def _load_existing() -> Dict[str, Dict]:
 def normalize() -> List[Dict]:
     config = load_config()
     source = normalize_source(config.get("source", "strava"))
+    provider = provider_for_source(source)
     activities_cfg = config.get("activities", {}) or {}
     type_aliases = activities_cfg.get("type_aliases", {}) or {}
     featured_types = featured_types_from_config(activities_cfg)
@@ -152,7 +153,7 @@ def normalize() -> List[Dict]:
             if not os.path.isfile(path):
                 continue
             activity = read_json(path)
-            normalized = _normalize_activity(activity, type_aliases, source)
+            normalized = _normalize_activity(activity, type_aliases, provider)
             if not normalized:
                 continue
             normalized_type = normalize_activity_type(
@@ -179,7 +180,7 @@ def normalize() -> List[Dict]:
         raw_type = str(item.get("raw_type") or raw_activity_type or other_bucket)
         item["raw_activity_type"] = raw_activity_type
         item["raw_type"] = raw_type
-        canonical_raw_type = _resolve_canonical_type(raw_type, source)
+        canonical_raw_type = _resolve_canonical_type(raw_type, provider)
         source_type = type_aliases.get(raw_type, type_aliases.get(canonical_raw_type, canonical_raw_type))
         item["type"] = normalize_activity_type(
             source_type,
