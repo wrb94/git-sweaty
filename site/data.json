@@ -1,132 +1,6 @@
 {
   "activities": [
     {
-      "date": "2012-01-11",
-      "hour": 14,
-      "name": "Afternoon Ride",
-      "subtype": "AlpineSki",
-      "type": "AlpineSki",
-      "url": "https://www.strava.com/activities/6078973018",
-      "year": 2012
-    },
-    {
-      "date": "2012-02-11",
-      "hour": 15,
-      "name": "Afternoon Ride",
-      "subtype": "AlpineSki",
-      "type": "AlpineSki",
-      "url": "https://www.strava.com/activities/6078972246",
-      "year": 2012
-    },
-    {
-      "date": "2012-02-20",
-      "hour": 10,
-      "name": "Morning Ride",
-      "subtype": "AlpineSki",
-      "type": "AlpineSki",
-      "url": "https://www.strava.com/activities/6078972840",
-      "year": 2012
-    },
-    {
-      "date": "2013-01-21",
-      "hour": 9,
-      "name": "Morning Ride",
-      "subtype": "AlpineSki",
-      "type": "AlpineSki",
-      "url": "https://www.strava.com/activities/6078972877",
-      "year": 2013
-    },
-    {
-      "date": "2013-01-22",
-      "hour": 9,
-      "name": "Morning Ride",
-      "subtype": "AlpineSki",
-      "type": "AlpineSki",
-      "url": "https://www.strava.com/activities/6078972476",
-      "year": 2013
-    },
-    {
-      "date": "2013-01-23",
-      "hour": 9,
-      "name": "Morning Ride",
-      "subtype": "AlpineSki",
-      "type": "AlpineSki",
-      "url": "https://www.strava.com/activities/6078972535",
-      "year": 2013
-    },
-    {
-      "date": "2013-01-24",
-      "hour": 9,
-      "name": "Morning Ride",
-      "subtype": "AlpineSki",
-      "type": "AlpineSki",
-      "url": "https://www.strava.com/activities/6078972610",
-      "year": 2013
-    },
-    {
-      "date": "2013-01-25",
-      "hour": 9,
-      "name": "Morning Ride",
-      "subtype": "AlpineSki",
-      "type": "AlpineSki",
-      "url": "https://www.strava.com/activities/6078972656",
-      "year": 2013
-    },
-    {
-      "date": "2013-02-16",
-      "hour": 10,
-      "name": "Morning Ride",
-      "subtype": "AlpineSki",
-      "type": "AlpineSki",
-      "url": "https://www.strava.com/activities/6078972718",
-      "year": 2013
-    },
-    {
-      "date": "2014-07-04",
-      "hour": 22,
-      "name": "Night Ride",
-      "subtype": "Ride",
-      "type": "Ride",
-      "url": "https://www.strava.com/activities/6078973014",
-      "year": 2014
-    },
-    {
-      "date": "2014-07-05",
-      "hour": 13,
-      "name": "Afternoon Ride",
-      "subtype": "Ride",
-      "type": "Ride",
-      "url": "https://www.strava.com/activities/6078973010",
-      "year": 2014
-    },
-    {
-      "date": "2014-07-05",
-      "hour": 21,
-      "name": "Night Ride",
-      "subtype": "Ride",
-      "type": "Ride",
-      "url": "https://www.strava.com/activities/6078973089",
-      "year": 2014
-    },
-    {
-      "date": "2015-03-01",
-      "hour": 10,
-      "name": "Morning Ride",
-      "subtype": "AlpineSki",
-      "type": "AlpineSki",
-      "url": "https://www.strava.com/activities/6078973214",
-      "year": 2015
-    },
-    {
-      "date": "2015-04-27",
-      "hour": 20,
-      "name": "Evening Run",
-      "subtype": "Run",
-      "type": "Run",
-      "url": "https://www.strava.com/activities/6078973197",
-      "year": 2015
-    },
-    {
       "date": "2017-01-06",
       "hour": 10,
       "name": "Morning Ride",
@@ -14732,145 +14606,27 @@
       "type": "VirtualRide",
       "url": "https://www.strava.com/activities/20741585662",
       "year": 2026
+    },
+    {
+      "date": "2026-10-28",
+      "hour": 19,
+      "name": "Zwift - Pacing #2",
+      "subtype": "VirtualRide",
+      "type": "VirtualRide",
+      "url": "https://www.strava.com/activities/20769235259",
+      "year": 2026
+    },
+    {
+      "date": "2026-10-29",
+      "hour": 19,
+      "name": "Evening Workout",
+      "subtype": "Workout",
+      "type": "Workout",
+      "url": "https://www.strava.com/activities/20783345817",
+      "year": 2026
     }
   ],
   "aggregates": {
-    "2012": {
-      "AlpineSki": {
-        "2012-01-11": {
-          "activity_ids": [
-            "6078973018"
-          ],
-          "count": 1,
-          "distance": 33166.5,
-          "elevation_gain": 3041.8,
-          "moving_time": 10406.0
-        },
-        "2012-02-11": {
-          "activity_ids": [
-            "6078972246"
-          ],
-          "count": 1,
-          "distance": 5907.3,
-          "elevation_gain": 468.9,
-          "moving_time": 2007.0
-        },
-        "2012-02-20": {
-          "activity_ids": [
-            "6078972840"
-          ],
-          "count": 1,
-          "distance": 6326.8,
-          "elevation_gain": 603.4,
-          "moving_time": 1387.0
-        }
-      }
-    },
-    "2013": {
-      "AlpineSki": {
-        "2013-01-21": {
-          "activity_ids": [
-            "6078972877"
-          ],
-          "count": 1,
-          "distance": 55610.2,
-          "elevation_gain": 4669.5,
-          "moving_time": 15456.0
-        },
-        "2013-01-22": {
-          "activity_ids": [
-            "6078972476"
-          ],
-          "count": 1,
-          "distance": 51964.8,
-          "elevation_gain": 4548.5,
-          "moving_time": 10818.0
-        },
-        "2013-01-23": {
-          "activity_ids": [
-            "6078972535"
-          ],
-          "count": 1,
-          "distance": 48552.6,
-          "elevation_gain": 4156.5,
-          "moving_time": 10985.0
-        },
-        "2013-01-24": {
-          "activity_ids": [
-            "6078972610"
-          ],
-          "count": 1,
-          "distance": 42661.4,
-          "elevation_gain": 3465.5,
-          "moving_time": 10015.0
-        },
-        "2013-01-25": {
-          "activity_ids": [
-            "6078972656"
-          ],
-          "count": 1,
-          "distance": 36656.1,
-          "elevation_gain": 2894.5,
-          "moving_time": 9000.0
-        },
-        "2013-02-16": {
-          "activity_ids": [
-            "6078972718"
-          ],
-          "count": 1,
-          "distance": 28713.4,
-          "elevation_gain": 3050.3,
-          "moving_time": 7778.0
-        }
-      }
-    },
-    "2014": {
-      "Ride": {
-        "2014-07-04": {
-          "activity_ids": [
-            "6078973014"
-          ],
-          "count": 1,
-          "distance": 4421.7,
-          "elevation_gain": 16.2,
-          "moving_time": 850.0
-        },
-        "2014-07-05": {
-          "activity_ids": [
-            "6078973010",
-            "6078973089"
-          ],
-          "count": 2,
-          "distance": 9107.8,
-          "elevation_gain": 27.0,
-          "moving_time": 1537.0
-        }
-      }
-    },
-    "2015": {
-      "AlpineSki": {
-        "2015-03-01": {
-          "activity_ids": [
-            "6078973214"
-          ],
-          "count": 1,
-          "distance": 55034.8,
-          "elevation_gain": 5715.0,
-          "moving_time": 15294.0
-        }
-      },
-      "Run": {
-        "2015-04-27": {
-          "activity_ids": [
-            "6078973197"
-          ],
-          "count": 1,
-          "distance": 4597.1,
-          "elevation_gain": 3.0,
-          "moving_time": 1616.0
-        }
-      }
-    },
     "2017": {
       "AlpineSki": {
         "2017-01-06": {
@@ -28450,6 +28206,15 @@
           "distance": 28661.1,
           "elevation_gain": 161.0,
           "moving_time": 3036.0
+        },
+        "2026-10-28": {
+          "activity_ids": [
+            "20769235259"
+          ],
+          "count": 1,
+          "distance": 31157.2,
+          "elevation_gain": 385.0,
+          "moving_time": 4130.0
         }
       },
       "Workout": {
@@ -28623,14 +28388,23 @@
           "distance": 0.0,
           "elevation_gain": 0.0,
           "moving_time": 3115.0
+        },
+        "2026-10-29": {
+          "activity_ids": [
+            "20783345817"
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 3355.0
         }
       }
     }
   },
-  "generated_at": "2026-10-27T22:34:31.723343+00:00",
+  "generated_at": "2026-10-30T21:18:10.463727+00:00",
   "other_bucket": "OtherSports",
   "repo": "wrb94/git-sweaty",
-  "source": "strava",
+  "source": "strava-gateway",
   "type_meta": {
     "AlpineSki": {
       "accent": "#72efdd",
