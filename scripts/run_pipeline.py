@@ -221,7 +221,7 @@ def _detect_persisted_source_hint() -> Optional[str]:
 
 
 def _sync_for_source(source: str, dry_run: bool, prune_deleted: bool):
-    if source == "strava":
+    if source in {"strava", "strava-gateway"}:
         return sync_strava(dry_run=dry_run, prune_deleted=prune_deleted)
     if source == "strava-kody":
         return sync_strava_kody(dry_run=dry_run, prune_deleted=prune_deleted)

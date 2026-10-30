@@ -1,5 +1,9 @@
 # Base configuration. Put secrets in config.local.yaml (ignored by git).
-source: "strava"  # "strava", "strava-kody", or "garmin"
+source: "strava"  # "strava", "strava-kody", "strava-gateway", or "garmin"
+
+strava_gateway:
+  url: "" # HTTPS service origin; alternatively set STRAVA_GATEWAY_URL
+  client_key: "" # client key (never admin key); keep in config.local.yaml or STRAVA_GATEWAY_CLIENT_KEY
 
 strava:
   client_id: ""

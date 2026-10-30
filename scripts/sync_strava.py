@@ -11,6 +11,7 @@ from typing import Any, Callable, Dict, List, Optional, Tuple
 
 import requests
 
+from strava_gateway import gateway_settings, uses_gateway
 from sync_scope import (
     activity_scope_from_config,
     activity_start_ts,
@@ -66,6 +67,8 @@ def _request_json_with_retry(
                 time.sleep(sleep_seconds)
                 continue
 
+            if kwargs.get("allow_redirects") is False and 300 <= resp.status_code < 400:
+                raise RuntimeError("Strava gateway redirected the request; check STRAVA_GATEWAY_URL.")
             resp.raise_for_status()
             return resp.json()
         except requests.HTTPError as exc:
@@ -281,6 +284,9 @@ def _athlete_fingerprint(athlete_id: int, secret: str) -> str:
 def _get_access_token(
     config: Dict, limiter: Optional[RateLimiter], force_refresh: bool = False
 ) -> str:
+    if uses_gateway(config):
+        # The gateway owns OAuth refresh and persistence; never read local tokens.
+        return gateway_settings(config)[1]
     strava = config.get("strava", {})
     client_id = strava.get("client_id")
     client_secret = strava.get("client_secret")
@@ -353,6 +359,19 @@ def _run_with_token_refresh(
     try:
         return call(token), token
     except requests.HTTPError as exc:
+        if uses_gateway(config):
+            status = _http_error_status(exc)
+            if status == 401:
+                raise RuntimeError(
+                    "Strava gateway returned 401. Check STRAVA_GATEWAY_CLIENT_KEY "
+                    "and the gateway's Strava connection."
+                ) from None
+            if status == 428:
+                raise RuntimeError(
+                    "Strava gateway requires authorization. Connect or reconnect Strava "
+                    "at the gateway's /admin/strava/authorize page."
+                ) from None
+            raise
         if _http_error_status(exc) != 401:
             raise
         print(
@@ -363,13 +382,27 @@ def _run_with_token_refresh(
         return call(refreshed_token), refreshed_token
 
 
-def _fetch_athlete(token: str, limiter: Optional[RateLimiter]) -> Dict:
+def _api_request_options(config: Optional[Dict]) -> Dict:
+    if config and uses_gateway(config):
+        # Do not follow redirects with the gateway's bearer credential.
+        return {"allow_redirects": False}
+    return {}
+
+
+def _api_base_url(config: Optional[Dict]) -> str:
+    if config and uses_gateway(config):
+        return gateway_settings(config)[0]
+    return "https://www.strava.com/api/v3"
+
+
+def _fetch_athlete(token: str, limiter: Optional[RateLimiter], config: Optional[Dict] = None) -> Dict:
     return _request_json_with_retry(
         "GET",
-        "https://www.strava.com/api/v3/athlete",
+        f"{_api_base_url(config)}/athlete",
         limiter=limiter,
         request_kind="read",
         headers={"Authorization": f"Bearer {token}"},
+        **_api_request_options(config),
     )
 
 
@@ -393,17 +426,19 @@ def _fetch_page(
     after: int,
     before: Optional[int],
     limiter: Optional[RateLimiter],
+    config: Optional[Dict] = None,
 ) -> List[Dict]:
     params = {"per_page": per_page, "page": page, "after": after}
     if before is not None:
         params["before"] = before
     return _request_json_with_retry(
         "GET",
-        "https://www.strava.com/api/v3/athlete/activities",
+        f"{_api_base_url(config)}/athlete/activities",
         limiter=limiter,
         request_kind="read",
         headers={"Authorization": f"Bearer {token}"},
         params=params,
+        **_api_request_options(config),
     )
 
 
@@ -478,7 +513,7 @@ def _fetch_recent_activity_ids(
             limiter,
             "recent activity overlap check",
             lambda access_token: _fetch_page(
-                access_token, min(per_page, 50), 1, 0, None, limiter
+                access_token, min(per_page, 50), 1, 0, None, limiter, config
             ),
         )
     except Exception:
@@ -496,6 +531,8 @@ def _maybe_reset_for_new_athlete(
 ) -> str:
     strava = config.get("strava", {}) or {}
     secret = strava.get("client_secret") or strava.get("refresh_token") or ""
+    if uses_gateway(config):
+        secret = gateway_settings(config)[1]
     if not secret:
         return token
 
@@ -505,7 +542,7 @@ def _maybe_reset_for_new_athlete(
             token,
             limiter,
             "athlete profile lookup",
-            lambda access_token: _fetch_athlete(access_token, limiter),
+            lambda access_token: _fetch_athlete(access_token, limiter, config),
         )
     except Exception as exc:
         print(f"Warning: unable to fetch athlete profile; skipping reset ({exc})")
@@ -628,7 +665,7 @@ def _sync_recent(
                 limiter,
                 "recent activity sync",
                 lambda access_token: _fetch_page(
-                    access_token, per_page, page, after, None, limiter
+                    access_token, per_page, page, after, None, limiter, config
                 ),
             )
         except RateLimitExceeded as exc:
@@ -748,7 +785,7 @@ def sync_strava(dry_run: bool, prune_deleted: bool) -> Dict:
                     limiter,
                     "historical backfill sync",
                     lambda access_token: _fetch_page(
-                        access_token, per_page, page, after, before, limiter
+                        access_token, per_page, page, after, before, limiter, config
                     ),
                 )
             except RateLimitExceeded as exc:
@@ -828,7 +865,7 @@ def sync_strava(dry_run: bool, prune_deleted: bool) -> Dict:
     total_new_or_updated = new_or_updated + int(recent_summary.get("new_or_updated", 0))
 
     summary = {
-        "source": "strava",
+        "source": "strava-gateway" if uses_gateway(config) else "strava",
         "fetched": total_fetched,
         "new_or_updated": total_new_or_updated,
         "deleted": deleted,

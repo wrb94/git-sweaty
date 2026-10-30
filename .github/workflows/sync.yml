@@ -12,6 +12,7 @@ on:
         options:
           - strava
           - strava-kody
+          - strava-gateway
           - garmin
         default: strava
       update_readme_link:
@@ -64,8 +65,8 @@ jobs:
         run: |
           source="${WORKFLOW_SOURCE:-${DASHBOARD_SOURCE:-strava}}"
           source="$(echo "${source}" | tr '[:upper:]' '[:lower:]' | xargs)"
-          if [[ "${source}" != "strava" && "${source}" != "strava-kody" && "${source}" != "garmin" ]]; then
-            echo "Unsupported source '${source}'. Expected strava, strava-kody, or garmin."
+          if [[ "${source}" != "strava" && "${source}" != "strava-kody" && "${source}" != "strava-gateway" && "${source}" != "garmin" ]]; then
+            echo "Unsupported source '${source}'. Expected strava, strava-kody, strava-gateway, or garmin."
             exit 1
           fi
           echo "SYNC_SOURCE=${source}" >> "$GITHUB_ENV"
@@ -85,6 +86,8 @@ jobs:
           STRAVA_CLIENT_SECRET: ${{ secrets.STRAVA_CLIENT_SECRET }}
           STRAVA_REFRESH_TOKEN: ${{ secrets.STRAVA_REFRESH_TOKEN }}
           KODY_API_TOKEN: ${{ secrets.KODY_API_TOKEN }}
+          STRAVA_GATEWAY_URL: ${{ secrets.STRAVA_GATEWAY_URL }}
+          STRAVA_GATEWAY_CLIENT_KEY: ${{ secrets.STRAVA_GATEWAY_CLIENT_KEY }}
           GARMIN_TOKENS_B64: ${{ secrets.GARMIN_TOKENS_B64 }}
           GARMIN_EMAIL: ${{ secrets.GARMIN_EMAIL }}
           GARMIN_PASSWORD: ${{ secrets.GARMIN_PASSWORD }}
@@ -101,8 +104,11 @@ jobs:
             fi
           elif [[ "${SYNC_SOURCE}" == "strava-kody" ]]; then
             [[ -n "$KODY_API_TOKEN" ]] || missing+=("KODY_API_TOKEN")
+          elif [[ "${SYNC_SOURCE}" == "strava-gateway" ]]; then
+            [[ -n "$STRAVA_GATEWAY_URL" ]] || missing+=("STRAVA_GATEWAY_URL")
+            [[ -n "$STRAVA_GATEWAY_CLIENT_KEY" ]] || missing+=("STRAVA_GATEWAY_CLIENT_KEY")
           else
-            missing+=("SYNC_SOURCE must be strava, strava-kody, or garmin")
+            missing+=("SYNC_SOURCE must be strava, strava-kody, strava-gateway, or garmin")
           fi
 
           if [ ${#missing[@]} -gt 0 ]; then
@@ -146,7 +152,7 @@ jobs:
             if [[ "${normalized_links_value}" == "1" || "${normalized_links_value}" == "true" || "${normalized_links_value}" == "yes" || "${normalized_links_value}" == "y" || "${normalized_links_value}" == "on" ]]; then
               echo "  include_activity_urls: true" >> config.local.yaml
             fi
-          elif [[ "${SYNC_SOURCE}" == "strava-kody" ]]; then
+          elif [[ "${SYNC_SOURCE}" == "strava-kody" || "${SYNC_SOURCE}" == "strava-gateway" ]]; then
             cat <<CONFIG >> config.local.yaml
           strava:
           CONFIG
@@ -247,6 +253,8 @@ jobs:
           DASHBOARD_REPO: ${{ vars.DASHBOARD_REPO }}
           GITHUB_TOKEN: ${{ github.token }}
           KODY_API_TOKEN: ${{ secrets.KODY_API_TOKEN }}
+          STRAVA_GATEWAY_URL: ${{ secrets.STRAVA_GATEWAY_URL }}
+          STRAVA_GATEWAY_CLIENT_KEY: ${{ secrets.STRAVA_GATEWAY_CLIENT_KEY }}
           UPDATE_README_LINK: ${{ github.event_name != 'workflow_dispatch' || inputs.update_readme_link }}
         run: |
           set -euo pipefail

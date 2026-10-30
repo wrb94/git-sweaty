@@ -508,6 +508,7 @@ function providerDisplayName(source) {
   const normalized = String(source || "").trim().toLowerCase();
   if (normalized === "garmin") return "Garmin";
   if (normalized === "strava-kody") return "Strava via Kody";
+  if (normalized === "strava-gateway") return "Strava via gateway";
   if (normalized === "strava") return "Strava";
   return "";
 }

@@ -49,6 +49,9 @@ if source == "strava":
             f"({', '.join(missing)})."
         )
         raise SystemExit(2)
+elif source == "strava-gateway":
+    from strava_gateway import gateway_settings
+    gateway_settings(config)
 elif source == "garmin":
     garmin = config.get("garmin") or {}
     token = has_text(garmin.get("token_store_b64"))

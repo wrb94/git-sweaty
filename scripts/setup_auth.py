@@ -46,6 +46,7 @@ from repo_helpers import (
     normalize_repo_slug as _shared_normalize_repo_slug,
     pages_url_from_slug as _shared_pages_url_from_slug,
 )
+from strava_gateway import normalize_gateway_url
 
 if sys.version_info < (3, 9):
     raise SystemExit(
@@ -86,6 +87,7 @@ STRAVA_REQUIRED_SECRET_NAMES = {
     "STRAVA_REFRESH_TOKEN",
 }
 KODY_REQUIRED_SECRET_NAMES = {"KODY_API_TOKEN"}
+GATEWAY_REQUIRED_SECRET_NAMES = {"STRAVA_GATEWAY_URL", "STRAVA_GATEWAY_CLIENT_KEY"}
 GARMIN_PRIMARY_SECRET_NAMES = {"GARMIN_TOKENS_B64"}
 GARMIN_FALLBACK_SECRET_NAMES = {"GARMIN_EMAIL", "GARMIN_PASSWORD"}
 
@@ -592,7 +594,7 @@ def _existing_dashboard_source(repo: str) -> Optional[str]:
     if not value:
         return None
     normalized = value.strip().lower()
-    if normalized in {"strava", "strava-kody", "garmin"}:
+    if normalized in {"strava", "strava-kody", "strava-gateway", "garmin"}:
         return normalized
     return None
 
@@ -754,6 +756,8 @@ def _has_required_source_secrets(source: str, secret_names: set[str]) -> bool:
         return STRAVA_REQUIRED_SECRET_NAMES.issubset(secret_names)
     if normalized_source == "strava-kody":
         return KODY_REQUIRED_SECRET_NAMES.issubset(secret_names)
+    if normalized_source == "strava-gateway":
+        return GATEWAY_REQUIRED_SECRET_NAMES.issubset(secret_names)
     if normalized_source == "garmin":
         has_primary = GARMIN_PRIMARY_SECRET_NAMES.issubset(secret_names)
         has_fallback = GARMIN_FALLBACK_SECRET_NAMES.issubset(secret_names)
@@ -793,6 +797,8 @@ def _has_explicit_setup_overrides(args: argparse.Namespace) -> bool:
             "garmin_profile_url",
             "garmin_activity_links",
             "kody_api_token",
+            "strava_gateway_url",
+            "strava_gateway_client_key",
         )
     )
 
@@ -803,6 +809,11 @@ def _has_explicit_credentials_for_source(args: argparse.Namespace, source: str) 
         return bool(getattr(args, "client_id", None) or getattr(args, "client_secret", None))
     if normalized_source == "strava-kody":
         return bool(getattr(args, "kody_api_token", None))
+    if normalized_source == "strava-gateway":
+        return bool(
+            getattr(args, "strava_gateway_url", None)
+            or getattr(args, "strava_gateway_client_key", None)
+        )
     if normalized_source == "garmin":
         return bool(
             getattr(args, "garmin_token_store_b64", None)
@@ -1104,11 +1115,12 @@ def _prompt_source() -> str:
     print("  1) Strava")
     print("  2) Strava via Kody")
     print("  3) Garmin")
+    print("  4) Strava via gateway")
     selected = _prompt_choice(
-        "Selection (enter 1, 2, or 3): ",
-        {"1": "strava", "2": "strava-kody", "3": "garmin"},
+        "Selection (enter 1, 2, 3, or 4): ",
+        {"1": "strava", "2": "strava-kody", "3": "garmin", "4": "strava-gateway"},
         default=None,
-        invalid_message="Please enter '1', '2', or '3'.",
+        invalid_message="Please enter '1', '2', '3', or '4'.",
     )
     return selected
 
@@ -1122,7 +1134,7 @@ def _resolve_source(
         return args.source
     if interactive:
         return _prompt_source()
-    if previous_source in {"strava", "strava-kody", "garmin"}:
+    if previous_source in {"strava", "strava-kody", "strava-gateway", "garmin"}:
         return previous_source
     return DEFAULT_SOURCE
 
@@ -2691,7 +2703,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--source",
-        choices=["strava", "strava-kody", "garmin"],
+        choices=["strava", "strava-kody", "strava-gateway", "garmin"],
         default=None,
         help="Activity source to configure.",
     )
@@ -2706,6 +2718,11 @@ def parse_args() -> argparse.Namespace:
         help=argparse.SUPPRESS,
     )
     parser.add_argument("--client-id", default=None, help="Strava client ID.")
+    parser.add_argument("--strava-gateway-url", default=None, help="Strava gateway HTTPS service origin.")
+    parser.add_argument(
+        "--strava-gateway-client-key", default=None,
+        help="Dedicated Strava gateway client key (not the administrator key).",
+    )
     parser.add_argument(
         "--client-secret",
         default=None,
@@ -2903,7 +2920,7 @@ def main() -> int:
     strava_profile_url_prefilled = ""
     garmin_profile_link_enabled_override: Optional[bool] = None
     garmin_profile_url_prefilled = ""
-    if source in {"strava", "strava-kody"}:
+    if source in {"strava", "strava-kody", "strava-gateway"}:
         if reuse_existing_settings:
             strava_activity_links_enabled = bool(_existing_dashboard_strava_activity_links(repo))
             strava_profile_url_prefilled = _existing_dashboard_strava_profile_url(repo)
@@ -2996,6 +3013,32 @@ def main() -> int:
             interactive and update_credentials,
             repo,
             tokens=tokens if update_credentials else {},
+            enabled_override=strava_profile_link_enabled_override,
+            prefilled_url=strava_profile_url_prefilled,
+            prompt_if_missing=False if strava_profile_link_enabled_override is not None else True,
+        )
+    elif source == "strava-gateway":
+        if update_credentials:
+            print("\nUse the gateway service URL and a dedicated client key, not the administrator key.")
+            gateway_url = getattr(args, "strava_gateway_url", None)
+            gateway_key = getattr(args, "strava_gateway_client_key", None)
+            if not interactive and (not gateway_url or not gateway_key):
+                raise RuntimeError(
+                    "Strava gateway requires --strava-gateway-url and --strava-gateway-client-key "
+                    "in non-interactive mode."
+                )
+            gateway_url = normalize_gateway_url(_prompt(gateway_url, "STRAVA_GATEWAY_URL"))
+            gateway_key = _prompt(gateway_key, "STRAVA_GATEWAY_CLIENT_KEY", secret=True)
+            if not gateway_key:
+                raise ValueError("STRAVA_GATEWAY_CLIENT_KEY is required.")
+            _set_secret("STRAVA_GATEWAY_URL", gateway_url, repo)
+            _set_secret("STRAVA_GATEWAY_CLIENT_KEY", gateway_key, repo)
+            configured_secret_names.extend(sorted(GATEWAY_REQUIRED_SECRET_NAMES))
+        strava_profile_url = _resolve_strava_profile_url(
+            args,
+            interactive and update_credentials,
+            repo,
+            tokens={},
             enabled_override=strava_profile_link_enabled_override,
             prefilled_url=strava_profile_url_prefilled,
             prompt_if_missing=False if strava_profile_link_enabled_override is not None else True,
@@ -3120,7 +3163,7 @@ def main() -> int:
         ("DASHBOARD_ELEVATION_UNIT", elevation_unit),
         ("DASHBOARD_WEEK_START", week_start),
     ]
-    if source in {"strava", "strava-kody"}:
+    if source in {"strava", "strava-kody", "strava-gateway"}:
         variable_pairs.append(("DASHBOARD_STRAVA_PROFILE_URL", strava_profile_url))
         variable_pairs.append(
             ("DASHBOARD_STRAVA_ACTIVITY_LINKS", "true" if strava_activity_links_enabled else "")
@@ -3149,9 +3192,9 @@ def main() -> int:
         f"DASHBOARD_DISTANCE_UNIT={distance_unit}, DASHBOARD_ELEVATION_UNIT={elevation_unit}, "
         f"DASHBOARD_WEEK_START={week_start}"
     )
-    if source in {"strava", "strava-kody"} and strava_profile_url:
+    if source in {"strava", "strava-kody", "strava-gateway"} and strava_profile_url:
         variable_summary = f"{variable_summary}, DASHBOARD_STRAVA_PROFILE_URL={strava_profile_url}"
-    if source in {"strava", "strava-kody"} and strava_activity_links_enabled:
+    if source in {"strava", "strava-kody", "strava-gateway"} and strava_activity_links_enabled:
         variable_summary = f"{variable_summary}, DASHBOARD_STRAVA_ACTIVITY_LINKS=true"
     if source == "garmin" and garmin_profile_url:
         variable_summary = f"{variable_summary}, DASHBOARD_GARMIN_PROFILE_URL={garmin_profile_url}"

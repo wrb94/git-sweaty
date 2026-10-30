@@ -68,6 +68,10 @@ class RunPipelineSourceSwitchTests(unittest.TestCase):
         reset_mock = self._run_pipeline_with_mocks(source="garmin", previous_source="strava")
         reset_mock.assert_called_once()
 
+    def test_gateway_source_switch_resets_shared_strava_state(self) -> None:
+        reset_mock = self._run_pipeline_with_mocks(source="strava-gateway", previous_source="strava")
+        reset_mock.assert_called_once()
+
     def test_run_pipeline_does_not_reset_when_source_is_unchanged(self) -> None:
         reset_mock = self._run_pipeline_with_mocks(source="strava", previous_source="strava")
         reset_mock.assert_not_called()

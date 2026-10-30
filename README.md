@@ -57,7 +57,7 @@ You will be prompted for:
   - Advanced (Local clone + git remotes): setup script will prefer an existing compatible local clone when available, or guide fork-and-clone setup, then complete the rest of the setup.
   - Manual (No setup scripts): follow [Manual Setup (No Scripts)](#manual-setup-no-scripts)
 - GitHub Pages custom domain (if you have one, for example `yoursite.example.com`)
-- Source (`strava`, `strava-kody`, or `garmin`)
+- Source (`strava`, `strava-kody`, `strava-gateway`, or `garmin`)
 - Unit preference (`US` or `Metric`)
 - Heatmap week start (`Sunday` or `Monday`)
 - Optional profile link in the dashboard header for the selected source (`Yes` or `No`)
@@ -66,6 +66,7 @@ You will be prompted for:
   - Strava: prompt will provide a link to create a [Strava API application](https://www.strava.com/settings/api) first, set Authorization Callback Domain to `localhost`.
     - Then paste the `client_id` + `client_secret` values in the prompt, then a browser tab will open for OAuth approval
   - Strava via Kody: a Kody API token with `local-execute`, `account:read`, `integration:read`, and `integration:use` scopes. Your Kody account must have a Strava integration connected.
+  - Strava via gateway: your gateway service URL and a dedicated client key. Connect Strava on the gateway first; the gateway manages OAuth tokens.
   - Garmin: account email + password
 
 The setup may take several minutes to complete when run for the first time. If any automation step fails, the script prints steps to remedy the failed step.  
@@ -84,10 +85,11 @@ Once the script succeeds, it will provide the URL for your dashboard.
 
 ## Switching Sources Later
 
-You can switch between `strava`, `strava-kody`, and `garmin` at any time.
+You can switch between `strava`, `strava-kody`, `strava-gateway`, and `garmin` at any time.
 
 - Re-run `./scripts/bootstrap.sh` (or the quickstart curl command) and choose a different source.
 - `strava-kody` runs Kody's CLI during the GitHub Actions sync and uses the Strava connection already linked to your Kody account. Add a Kody API token when setup prompts for it; tokens can last up to 90 days, so replace the `KODY_API_TOKEN` repository secret before it expires.
+- `strava-gateway` calls your independently hosted gateway over HTTPS using a client key. It supports the same recent sync, resumable backfill, and optional activity links as direct Strava. It uses the Strava cache and `data/backfill_state_strava.json`; switching sources triggers a fresh sync.
 - If you re-run setup and choose the same source, setup asks whether to force a one-time full backfill. You can also update unit preference, week start, the source profile link, and activity links in tooltips.
 
 ---
@@ -108,7 +110,7 @@ You can switch between `strava`, `strava-kody`, and `garmin` at any time.
 
 Use this if you do not want to run `bootstrap.sh` or `setup_auth.py`.
 
-### 1) Shared steps (Strava + Strava via Kody + Garmin)
+### 1) Shared steps (all sources)
 
 1. Fork this repository on GitHub.
 2. In your fork, keep `main` current with upstream using **Sync fork**.
@@ -118,7 +120,7 @@ Use this if you do not want to run `bootstrap.sh` or `setup_auth.py`.
    - `Settings` -> `Pages` -> `Source` -> `GitHub Actions`
 5. In your fork, add these repository variables:
    - `Settings` -> `Secrets and variables` -> `Actions` -> `Variables`
-   - `DASHBOARD_SOURCE`: `strava`, `strava-kody`, or `garmin`
+   - `DASHBOARD_SOURCE`: `strava`, `strava-kody`, `strava-gateway`, or `garmin`
    - `DASHBOARD_REPO`: your fork slug (example: `yourname/git-sweaty`)
    - `DASHBOARD_DISTANCE_UNIT`: `mi` or `km`
    - `DASHBOARD_ELEVATION_UNIT`: `ft` or `m`
@@ -168,6 +170,27 @@ curl -sS -X POST https://www.strava.com/oauth/token \
 2. Create a Kody API token with `local-execute`, `account:read`, `integration:read`, and `integration:use` scopes.
 3. Add it as the `KODY_API_TOKEN` repository secret. Kody tokens can last up to 90 days, so renew the token and replace this secret before it expires.
 
+#### Strava via gateway secrets
+
+1. Deploy and authorize your Strava gateway. The gateway must expose `/v1/strava/athlete` and `/v1/strava/athlete/activities` using the connected athlete's Strava permissions.
+2. Set `DASHBOARD_SOURCE` to `strava-gateway`.
+3. Add these repository secrets:
+   - `STRAVA_GATEWAY_URL`: the HTTPS service origin, for example `https://your-gateway.example.com` (a trailing `/v1/strava` is also accepted).
+   - `STRAVA_GATEWAY_CLIENT_KEY`: a dedicated gateway client key, **not** the administrator key.
+
+The gateway handles Strava OAuth refresh and token storage. If sync reports that authorization is required (HTTP 428), reconnect using the gateway's `/admin/strava/authorize` page. Existing Strava profile and activity link variables also apply to this source.
+
+For local sync, put the following in the ignored `config.local.yaml`:
+
+```yaml
+source: strava-gateway
+strava_gateway:
+  url: https://your-gateway.example.com
+  client_key: YOUR_CLIENT_KEY
+```
+
+Alternatively, set `source: strava-gateway` and provide `STRAVA_GATEWAY_URL` and `STRAVA_GATEWAY_CLIENT_KEY` as environment variables. HTTP is accepted for localhost development only. Run `python scripts/run_pipeline.py` to sync and rebuild the dashboard, or rerun `./scripts/bootstrap.sh` and choose **Strava via gateway** to configure GitHub Actions.
+
 #### Garmin secrets
 
 Choose one auth path:
@@ -189,7 +212,7 @@ Optional but recommended for automatic Garmin token rotation:
 
 1. Go to `Actions` -> `Sync Heatmaps`.
 2. Click `Run workflow` on the `main` branch.
-3. Optional: set `source` explicitly (`strava`, `strava-kody`, or `garmin`) when running manually.
+3. Optional: set `source` explicitly (`strava`, `strava-kody`, `strava-gateway`, or `garmin`) when running manually.
 4. Wait for `Sync Heatmaps` to complete successfully.
 5. Confirm `Deploy Pages` runs (automatically after a successful sync).
 6. Open your dashboard at:

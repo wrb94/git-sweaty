@@ -8,7 +8,7 @@ import yaml
 CONFIG_PATH = "config.yaml"
 CONFIG_LOCAL_PATH = "config.local.yaml"
 DEFAULT_SOURCE = "strava"
-SUPPORTED_SOURCES = {"strava", "strava-kody", "garmin"}
+SUPPORTED_SOURCES = {"strava", "strava-kody", "strava-gateway", "garmin"}
 
 
 def _deep_merge(base: Dict[str, Any], override: Dict[str, Any]) -> Dict[str, Any]:
@@ -48,11 +48,15 @@ def normalize_source(value: Any) -> str:
 def provider_for_source(source: Any) -> str:
     """Return the activity provider represented by a dashboard source option."""
     normalized = normalize_source(source)
-    return "strava" if normalized == "strava-kody" else normalized
+    return "strava" if normalized in {"strava-kody", "strava-gateway"} else normalized
 
 
 def raw_activity_dir(source: str) -> str:
-    return os.path.join("activities", "raw", normalize_source(source))
+    normalized = normalize_source(source)
+    # The gateway uses the regular Strava sync engine and its cache/state layout.
+    if normalized == "strava-gateway":
+        normalized = "strava"
+    return os.path.join("activities", "raw", normalized)
 
 
 def ensure_dir(path: str) -> None:

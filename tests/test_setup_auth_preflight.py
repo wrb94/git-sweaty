@@ -1059,6 +1059,49 @@ class SetupAuthDispatchTests(unittest.TestCase):
 
 
 class SetupAuthMainFlowTests(unittest.TestCase):
+    def test_main_configures_gateway_secrets_without_strava_oauth(self) -> None:
+        args = self._default_args()
+        args.source = "strava-gateway"
+        args.strava_gateway_url = "https://gateway.example.com/v1/strava/"
+        args.strava_gateway_client_key = "client-key"
+        args.no_auto_github = True
+        with ExitStack() as stack:
+            for name in ["_bootstrap_env_and_reexec", "_assert_gh_ready", "_assert_repo_access", "_assert_actions_secret_access"]:
+                stack.enter_context(mock.patch(f"setup_auth.{name}"))
+            stack.enter_context(mock.patch("setup_auth.parse_args", return_value=args))
+            stack.enter_context(mock.patch("setup_auth._isatty", return_value=False))
+            stack.enter_context(mock.patch("setup_auth._resolve_repo_slug", return_value="owner/repo"))
+            stack.enter_context(mock.patch("setup_auth._load_existing_dashboard_settings", return_value=None))
+            stack.enter_context(mock.patch("setup_auth._existing_dashboard_source", return_value=None))
+            stack.enter_context(mock.patch("setup_auth._resolve_units", return_value=("km", "m")))
+            stack.enter_context(mock.patch("setup_auth._resolve_week_start", return_value="monday"))
+            stack.enter_context(mock.patch("setup_auth._resolve_strava_activity_links", return_value=True))
+            stack.enter_context(mock.patch("setup_auth._resolve_strava_profile_link_preference", return_value=(True, "https://www.strava.com/athletes/42")))
+            stack.enter_context(mock.patch("setup_auth._resolve_strava_profile_url", return_value="https://www.strava.com/athletes/42"))
+            stack.enter_context(mock.patch("setup_auth._dashboard_url_from_pages_api", return_value=None))
+            set_secret = stack.enter_context(mock.patch("setup_auth._set_secret"))
+            set_variable = stack.enter_context(mock.patch("setup_auth._set_variable"))
+            oauth = stack.enter_context(mock.patch("setup_auth._authorize_and_get_code"))
+            stack.enter_context(mock.patch("builtins.print"))
+            self.assertEqual(setup_auth.main(), 0)
+        self.assertEqual(set_secret.call_args_list, [
+            mock.call("STRAVA_GATEWAY_URL", "https://gateway.example.com", "owner/repo"),
+            mock.call("STRAVA_GATEWAY_CLIENT_KEY", "client-key", "owner/repo"),
+        ])
+        set_variable.assert_any_call("DASHBOARD_SOURCE", "strava-gateway", "owner/repo")
+        set_variable.assert_any_call("DASHBOARD_STRAVA_ACTIVITY_LINKS", "true", "owner/repo")
+        oauth.assert_not_called()
+
+    def test_gateway_setup_supports_cli_selection_and_secret_reuse(self) -> None:
+        with mock.patch.object(sys, "argv", ["setup_auth.py", "--source", "strava-gateway", "--strava-gateway-url", "https://gateway.example.com", "--strava-gateway-client-key", "key"]):
+            args = setup_auth.parse_args()
+        self.assertEqual(args.source, "strava-gateway")
+        self.assertTrue(setup_auth._has_explicit_credentials_for_source(args, "strava-gateway"))
+        self.assertTrue(setup_auth._has_required_source_secrets("strava-gateway", {"STRAVA_GATEWAY_URL", "STRAVA_GATEWAY_CLIENT_KEY"}))
+        self.assertFalse(setup_auth._has_required_source_secrets("strava-gateway", {"STRAVA_GATEWAY_URL"}))
+        with mock.patch("builtins.input", return_value="4"), mock.patch("builtins.print"):
+            self.assertEqual(setup_auth._prompt_source(), "strava-gateway")
+
     @staticmethod
     def _default_args() -> Namespace:
         return Namespace(
