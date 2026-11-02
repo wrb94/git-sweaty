@@ -21123,5 +21123,31 @@
     "start_date_local": "2026-10-29T19:19:21Z",
     "type": "Workout",
     "year": 2026
+  },
+  {
+    "date": "2026-10-31",
+    "distance": 45364.8,
+    "elevation_gain": 338.0,
+    "id": "20808402492",
+    "moving_time": 5420.0,
+    "name": "Zwift - Out And Back Again in Watopia",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-10-31T18:34:15Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-11-02",
+    "distance": 49529.8,
+    "elevation_gain": 174.0,
+    "id": "20833027947",
+    "moving_time": 5125.0,
+    "name": "Zwift - SST (Med)",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-11-02T18:25:18Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]

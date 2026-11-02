@@ -14624,6 +14624,24 @@
       "type": "Workout",
       "url": "https://www.strava.com/activities/20783345817",
       "year": 2026
+    },
+    {
+      "date": "2026-10-31",
+      "hour": 18,
+      "name": "Zwift - Out And Back Again in Watopia",
+      "subtype": "VirtualRide",
+      "type": "VirtualRide",
+      "url": "https://www.strava.com/activities/20808402492",
+      "year": 2026
+    },
+    {
+      "date": "2026-11-02",
+      "hour": 18,
+      "name": "Zwift - SST (Med)",
+      "subtype": "VirtualRide",
+      "type": "VirtualRide",
+      "url": "https://www.strava.com/activities/20833027947",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -28215,6 +28233,24 @@
           "distance": 31157.2,
           "elevation_gain": 385.0,
           "moving_time": 4130.0
+        },
+        "2026-10-31": {
+          "activity_ids": [
+            "20808402492"
+          ],
+          "count": 1,
+          "distance": 45364.8,
+          "elevation_gain": 338.0,
+          "moving_time": 5420.0
+        },
+        "2026-11-02": {
+          "activity_ids": [
+            "20833027947"
+          ],
+          "count": 1,
+          "distance": 49529.8,
+          "elevation_gain": 174.0,
+          "moving_time": 5125.0
         }
       },
       "Workout": {
@@ -28401,7 +28437,7 @@
       }
     }
   },
-  "generated_at": "2026-10-30T21:18:10.463727+00:00",
+  "generated_at": "2026-11-02T20:09:04.598478+00:00",
   "other_bucket": "OtherSports",
   "repo": "wrb94/git-sweaty",
   "source": "strava-gateway",
