@@ -21162,5 +21162,18 @@
     "start_date_local": "2026-11-04T19:11:13Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-11-05",
+    "distance": 0.0,
+    "elevation_gain": 0.0,
+    "id": "20874729657",
+    "moving_time": 3538.0,
+    "name": "Evening Workout",
+    "raw_activity_type": "Workout",
+    "raw_type": "Workout",
+    "start_date_local": "2026-11-05T19:19:09Z",
+    "type": "Workout",
+    "year": 2026
   }
 ]
