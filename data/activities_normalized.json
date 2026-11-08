@@ -21175,5 +21175,31 @@
     "start_date_local": "2026-11-05T19:19:09Z",
     "type": "Workout",
     "year": 2026
+  },
+  {
+    "date": "2026-11-08",
+    "distance": 54345.7,
+    "elevation_gain": 383.0,
+    "id": "20907255243",
+    "moving_time": 6325.0,
+    "name": "Zwift - Pacific Pursuit in Watopia",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-11-08T11:21:30Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-11-08",
+    "distance": 19646.3,
+    "elevation_gain": 59.0,
+    "id": "20907982690",
+    "moving_time": 2110.0,
+    "name": "Zwift - Tick Tock in Watopia",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-11-08T13:19:23Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]

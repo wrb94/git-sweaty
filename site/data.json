@@ -14660,6 +14660,24 @@
       "type": "Workout",
       "url": "https://www.strava.com/activities/20874729657",
       "year": 2026
+    },
+    {
+      "date": "2026-11-08",
+      "hour": 11,
+      "name": "Zwift - Pacific Pursuit in Watopia",
+      "subtype": "VirtualRide",
+      "type": "VirtualRide",
+      "url": "https://www.strava.com/activities/20907255243",
+      "year": 2026
+    },
+    {
+      "date": "2026-11-08",
+      "hour": 13,
+      "name": "Zwift - Tick Tock in Watopia",
+      "subtype": "VirtualRide",
+      "type": "VirtualRide",
+      "url": "https://www.strava.com/activities/20907982690",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -28278,6 +28296,16 @@
           "distance": 31122.6,
           "elevation_gain": 247.0,
           "moving_time": 3666.0
+        },
+        "2026-11-08": {
+          "activity_ids": [
+            "20907255243",
+            "20907982690"
+          ],
+          "count": 2,
+          "distance": 73992.0,
+          "elevation_gain": 442.0,
+          "moving_time": 8435.0
         }
       },
       "Workout": {
@@ -28473,7 +28501,7 @@
       }
     }
   },
-  "generated_at": "2026-11-07T19:18:12.707853+00:00",
+  "generated_at": "2026-11-08T19:26:38.972939+00:00",
   "other_bucket": "OtherSports",
   "repo": "wrb94/git-sweaty",
   "source": "strava-gateway",

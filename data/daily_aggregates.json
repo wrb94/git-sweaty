@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T19:18:12.689437+00:00",
+  "generated_at": "2026-11-08T19:26:38.955649+00:00",
   "years": {
     "2017": {
       "AlpineSki": {
@@ -13616,6 +13616,16 @@
           "distance": 31122.6,
           "elevation_gain": 247.0,
           "moving_time": 3666.0
+        },
+        "2026-11-08": {
+          "activity_ids": [
+            "20907255243",
+            "20907982690"
+          ],
+          "count": 2,
+          "distance": 73992.0,
+          "elevation_gain": 442.0,
+          "moving_time": 8435.0
         }
       },
       "Workout": {
