@@ -14687,6 +14687,15 @@
       "type": "VirtualRide",
       "url": "https://www.strava.com/activities/20924385909",
       "year": 2026
+    },
+    {
+      "date": "2026-11-11",
+      "hour": 18,
+      "name": "Zwift - 3x20min SST Low",
+      "subtype": "VirtualRide",
+      "type": "VirtualRide",
+      "url": "https://www.strava.com/activities/20951180009",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -28324,6 +28333,15 @@
           "distance": 43448.7,
           "elevation_gain": 317.0,
           "moving_time": 4815.0
+        },
+        "2026-11-11": {
+          "activity_ids": [
+            "20951180009"
+          ],
+          "count": 1,
+          "distance": 51506.0,
+          "elevation_gain": 519.0,
+          "moving_time": 6312.0
         }
       },
       "Workout": {
@@ -28519,7 +28537,7 @@
       }
     }
   },
-  "generated_at": "2026-11-10T21:14:52.334762+00:00",
+  "generated_at": "2026-11-11T21:48:37.601986+00:00",
   "other_bucket": "OtherSports",
   "repo": "wrb94/git-sweaty",
   "source": "strava-gateway",

@@ -21214,5 +21214,18 @@
     "start_date_local": "2026-11-09T19:22:29Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-11-11",
+    "distance": 51506.0,
+    "elevation_gain": 519.0,
+    "id": "20951180009",
+    "moving_time": 6312.0,
+    "name": "Zwift - 3x20min SST Low",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-11-11T18:41:03Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
