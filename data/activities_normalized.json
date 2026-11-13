@@ -21240,5 +21240,31 @@
     "start_date_local": "2026-11-12T19:24:58Z",
     "type": "Workout",
     "year": 2026
+  },
+  {
+    "date": "2026-11-13",
+    "distance": 19588.3,
+    "elevation_gain": 274.0,
+    "id": "20975298926",
+    "moving_time": 2680.0,
+    "name": "Zwift - Downtown Eruption in Watopia",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-11-13T19:06:48Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-11-13",
+    "distance": 13199.7,
+    "elevation_gain": 49.0,
+    "id": "20975516778",
+    "moving_time": 1450.0,
+    "name": "Zwift - Beach Island Loop in Watopia",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-11-13T19:52:04Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]

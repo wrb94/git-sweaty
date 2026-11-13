@@ -14705,6 +14705,24 @@
       "type": "Workout",
       "url": "https://www.strava.com/activities/20964323314",
       "year": 2026
+    },
+    {
+      "date": "2026-11-13",
+      "hour": 19,
+      "name": "Zwift - Downtown Eruption in Watopia",
+      "subtype": "VirtualRide",
+      "type": "VirtualRide",
+      "url": "https://www.strava.com/activities/20975298926",
+      "year": 2026
+    },
+    {
+      "date": "2026-11-13",
+      "hour": 19,
+      "name": "Zwift - Beach Island Loop in Watopia",
+      "subtype": "VirtualRide",
+      "type": "VirtualRide",
+      "url": "https://www.strava.com/activities/20975516778",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -28351,6 +28369,16 @@
           "distance": 51506.0,
           "elevation_gain": 519.0,
           "moving_time": 6312.0
+        },
+        "2026-11-13": {
+          "activity_ids": [
+            "20975298926",
+            "20975516778"
+          ],
+          "count": 2,
+          "distance": 32788.0,
+          "elevation_gain": 323.0,
+          "moving_time": 4130.0
         }
       },
       "Workout": {
@@ -28555,7 +28583,7 @@
       }
     }
   },
-  "generated_at": "2026-11-12T21:47:06.393115+00:00",
+  "generated_at": "2026-11-13T21:18:41.924616+00:00",
   "other_bucket": "OtherSports",
   "repo": "wrb94/git-sweaty",
   "source": "strava-gateway",
