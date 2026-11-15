@@ -21266,5 +21266,57 @@
     "start_date_local": "2026-11-13T19:52:04Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-11-15",
+    "distance": 28237.4,
+    "elevation_gain": 669.0,
+    "id": "20996214373",
+    "moving_time": 4762.0,
+    "name": "Zwift - Climber's Gambit in Watopia",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-11-15T11:33:58Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-11-15",
+    "distance": 13113.4,
+    "elevation_gain": 97.0,
+    "id": "20996770313",
+    "moving_time": 1518.0,
+    "name": "Zwift - Jarvis Seaside Sprint in Watopia",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-11-15T13:04:54Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-11-15",
+    "distance": 13876.4,
+    "elevation_gain": 37.0,
+    "id": "20997134505",
+    "moving_time": 1513.0,
+    "name": "Zwift - Crit Cross in Watopia",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-11-15T13:31:36Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-11-15",
+    "distance": 12501.7,
+    "elevation_gain": 18.0,
+    "id": "20997445311",
+    "moving_time": 1211.0,
+    "name": "Zwift - Pacer Group Ride with Maria",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-11-15T13:59:56Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]

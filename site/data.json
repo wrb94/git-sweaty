@@ -14723,6 +14723,42 @@
       "type": "VirtualRide",
       "url": "https://www.strava.com/activities/20975516778",
       "year": 2026
+    },
+    {
+      "date": "2026-11-15",
+      "hour": 11,
+      "name": "Zwift - Climber's Gambit in Watopia",
+      "subtype": "VirtualRide",
+      "type": "VirtualRide",
+      "url": "https://www.strava.com/activities/20996214373",
+      "year": 2026
+    },
+    {
+      "date": "2026-11-15",
+      "hour": 13,
+      "name": "Zwift - Jarvis Seaside Sprint in Watopia",
+      "subtype": "VirtualRide",
+      "type": "VirtualRide",
+      "url": "https://www.strava.com/activities/20996770313",
+      "year": 2026
+    },
+    {
+      "date": "2026-11-15",
+      "hour": 13,
+      "name": "Zwift - Crit Cross in Watopia",
+      "subtype": "VirtualRide",
+      "type": "VirtualRide",
+      "url": "https://www.strava.com/activities/20997134505",
+      "year": 2026
+    },
+    {
+      "date": "2026-11-15",
+      "hour": 13,
+      "name": "Zwift - Pacer Group Ride with Maria",
+      "subtype": "VirtualRide",
+      "type": "VirtualRide",
+      "url": "https://www.strava.com/activities/20997445311",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -28379,6 +28415,18 @@
           "distance": 32788.0,
           "elevation_gain": 323.0,
           "moving_time": 4130.0
+        },
+        "2026-11-15": {
+          "activity_ids": [
+            "20996214373",
+            "20996770313",
+            "20997134505",
+            "20997445311"
+          ],
+          "count": 4,
+          "distance": 67728.90000000001,
+          "elevation_gain": 821.0,
+          "moving_time": 9004.0
         }
       },
       "Workout": {
@@ -28583,7 +28631,7 @@
       }
     }
   },
-  "generated_at": "2026-11-14T19:49:55.953241+00:00",
+  "generated_at": "2026-11-15T20:14:01.075025+00:00",
   "other_bucket": "OtherSports",
   "repo": "wrb94/git-sweaty",
   "source": "strava-gateway",
