@@ -14759,6 +14759,15 @@
       "type": "VirtualRide",
       "url": "https://www.strava.com/activities/20997445311",
       "year": 2026
+    },
+    {
+      "date": "2026-11-16",
+      "hour": 18,
+      "name": "Zwift - SST (Short)",
+      "subtype": "VirtualRide",
+      "type": "VirtualRide",
+      "url": "https://www.strava.com/activities/21011714521",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -28427,6 +28436,15 @@
           "distance": 67728.90000000001,
           "elevation_gain": 821.0,
           "moving_time": 9004.0
+        },
+        "2026-11-16": {
+          "activity_ids": [
+            "21011714521"
+          ],
+          "count": 1,
+          "distance": 31008.8,
+          "elevation_gain": 47.0,
+          "moving_time": 3023.0
         }
       },
       "Workout": {
@@ -28631,7 +28649,7 @@
       }
     }
   },
-  "generated_at": "2026-11-15T20:14:01.075025+00:00",
+  "generated_at": "2026-11-16T23:41:07.097403+00:00",
   "other_bucket": "OtherSports",
   "repo": "wrb94/git-sweaty",
   "source": "strava-gateway",
