@@ -14768,6 +14768,15 @@
       "type": "VirtualRide",
       "url": "https://www.strava.com/activities/21011714521",
       "year": 2026
+    },
+    {
+      "date": "2026-11-18",
+      "hour": 19,
+      "name": "Zwift - Zone 2 #1",
+      "subtype": "VirtualRide",
+      "type": "VirtualRide",
+      "url": "https://www.strava.com/activities/21038623338",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -28445,6 +28454,15 @@
           "distance": 31008.8,
           "elevation_gain": 47.0,
           "moving_time": 3023.0
+        },
+        "2026-11-18": {
+          "activity_ids": [
+            "21038623338"
+          ],
+          "count": 1,
+          "distance": 19558.5,
+          "elevation_gain": 335.0,
+          "moving_time": 3611.0
         }
       },
       "Workout": {
@@ -28649,7 +28667,7 @@
       }
     }
   },
-  "generated_at": "2026-11-17T22:49:21.582836+00:00",
+  "generated_at": "2026-11-18T22:31:05.613929+00:00",
   "other_bucket": "OtherSports",
   "repo": "wrb94/git-sweaty",
   "source": "strava-gateway",
