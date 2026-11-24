@@ -14777,6 +14777,15 @@
       "type": "VirtualRide",
       "url": "https://www.strava.com/activities/21038623338",
       "year": 2026
+    },
+    {
+      "date": "2026-11-24",
+      "hour": 10,
+      "name": "Vilaflor x Boneshakers",
+      "subtype": "Ride",
+      "type": "Ride",
+      "url": "https://www.strava.com/activities/21108450285",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -27641,6 +27650,15 @@
           "distance": 127551.0,
           "elevation_gain": 498.2,
           "moving_time": 15418.0
+        },
+        "2026-11-24": {
+          "activity_ids": [
+            "21108450285"
+          ],
+          "count": 1,
+          "distance": 66872.0,
+          "elevation_gain": 1542.0,
+          "moving_time": 11582.0
         }
       },
       "Run": {
@@ -28667,7 +28685,7 @@
       }
     }
   },
-  "generated_at": "2026-11-24T02:04:15.167097+00:00",
+  "generated_at": "2026-11-24T23:48:31.026405+00:00",
   "other_bucket": "OtherSports",
   "repo": "wrb94/git-sweaty",
   "source": "strava-gateway",
