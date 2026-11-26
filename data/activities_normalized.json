@@ -21370,5 +21370,18 @@
     "start_date_local": "2026-11-25T09:14:42Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-11-26",
+    "distance": 50162.0,
+    "elevation_gain": 952.0,
+    "id": "21131999744",
+    "moving_time": 8680.0,
+    "name": "San Miguel de Abona x Boneshakers",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-11-26T11:18:46Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
