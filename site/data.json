@@ -14804,6 +14804,15 @@
       "type": "Ride",
       "url": "https://www.strava.com/activities/21131999744",
       "year": 2026
+    },
+    {
+      "date": "2026-11-27",
+      "hour": 10,
+      "name": "Masca x Boneshakers",
+      "subtype": "Ride",
+      "type": "Ride",
+      "url": "https://www.strava.com/activities/21144624168",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -27695,6 +27704,15 @@
           "distance": 50162.0,
           "elevation_gain": 952.0,
           "moving_time": 8680.0
+        },
+        "2026-11-27": {
+          "activity_ids": [
+            "21144624168"
+          ],
+          "count": 1,
+          "distance": 82183.8,
+          "elevation_gain": 2487.3,
+          "moving_time": 17535.0
         }
       },
       "Run": {
@@ -28721,7 +28739,7 @@
       }
     }
   },
-  "generated_at": "2026-11-26T23:36:41.318286+00:00",
+  "generated_at": "2026-11-27T23:18:12.846138+00:00",
   "other_bucket": "OtherSports",
   "repo": "wrb94/git-sweaty",
   "source": "strava-gateway",

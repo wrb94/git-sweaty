@@ -21383,5 +21383,18 @@
     "start_date_local": "2026-11-26T11:18:46Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-11-27",
+    "distance": 82183.8,
+    "elevation_gain": 2487.3,
+    "id": "21144624168",
+    "moving_time": 17535.0,
+    "name": "Masca x Boneshakers",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-11-27T10:29:09Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
